@@ -1,0 +1,33 @@
+{
+  "slug": "sample-junk-removal",
+  "business": "Sample Junk Removal Co.",
+  "trade": "Junk Removal",
+  "city": "Des Moines, IA",
+  "owner": "Mike",
+  "receptionist": "Ava",
+  "hours": "Monday to Saturday, 7 AM to 7 PM",
+  "services": [
+    "Furniture removal",
+    "Appliance haul-away",
+    "Garage, basement and estate cleanouts",
+    "Yard waste and debris",
+    "Hot tub and shed removal"
+  ],
+  "areas": [
+    "Des Moines",
+    "West Des Moines",
+    "Ankeny",
+    "Urbandale",
+    "Johnston",
+    "Clive"
+  ],
+  "pricing": "Priced by how much of the truck the load fills. Single items usually start around $99, a full truck is around $550. Exact price is confirmed on site before any work starts, or from a photo by text.",
+  "notes": "Same-day and next-day pickups are often available. Licensed and insured. Takes card, cash and Venmo. Crew does all the lifting.",
+  "tries": [
+    "\"How much to haul away a couch?\"",
+    "\"Do you come out to West Des Moines?\"",
+    "\"Can someone come out Saturday morning?\""
+  ],
+  "color": "#16a34a",
+  "created": "2026-11-19"
+}
