@@ -1,0 +1,17 @@
+{
+  "slug": "sample-junk-removal",
+  "business": "Sample Junk Removal Co.",
+  "trade": "Junk Removal",
+  "city": "Des Moines, IA",
+  "tagline": "Junk gone today. Fair prices, no surprises.",
+  "intro": "Furniture, appliances, garage and basement cleanouts. Text us a photo for a fast quote and we'll haul it away, often the same day.",
+  "services": [
+    { "name": "Furniture removal", "text": "Couches, mattresses, dressers and more, carried out for you." },
+    { "name": "Appliance haul-away", "text": "Fridges, washers, dryers and water heaters, disposed of responsibly." },
+    { "name": "Full cleanouts", "text": "Garages, basements, estates and rentals, cleared in one visit." }
+  ],
+  "why": ["Same-day pickups", "Upfront pricing from a photo", "Licensed and insured crew"],
+  "areas": ["Des Moines", "West Des Moines", "Ankeny", "Urbandale", "Johnston"],
+  "color": "#16a34a",
+  "created": "2026-11-19"
+}

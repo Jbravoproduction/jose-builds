@@ -16,9 +16,8 @@
   --font-mono: "JetBrains Mono", ui-monospace, monospace;
 }
 
-html,
-body {
-  background: var(--color-void);
+.hq-bg {
+  background-color: var(--color-void);
   color: var(--color-ink);
 }
 

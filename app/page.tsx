@@ -35,6 +35,7 @@ function Kicker({ children }: { children: React.ReactNode }) {
 
 export default function Home() {
   return (
+    <div className="hq-bg min-h-screen">
     <main className="mx-auto flex max-w-6xl flex-col gap-24 px-5 pb-16 pt-6 sm:px-8">
       <header className="flex items-center justify-between">
         <span className="flex items-center gap-2.5 font-mono text-sm font-bold tracking-[0.3em]">
@@ -169,5 +170,6 @@ export default function Home() {
 
       <footer className="text-center font-mono text-xs text-dim">© {new Date().getFullYear()} Jose Bravo · built with Claude, GitHub and Vercel</footer>
     </main>
+    </div>
   );
 }
