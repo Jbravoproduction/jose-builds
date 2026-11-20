@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { TalkButton } from "@/components/talk-button";
 import { allReceptionists, getReceptionist } from "@/lib/receptionists";
-import { CONTACT_EMAIL } from "@/lib/site";
+import { CONTACT_EMAIL, RECEPTIONIST_CHECKOUT } from "@/lib/site";
 
 export function generateStaticParams() {
   return allReceptionists().map((r) => ({ slug: r.slug }));
@@ -20,6 +20,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 export default async function TryReceptionist({ params }: { params: Promise<{ slug: string }> }) {
   const r = getReceptionist((await params).slug);
   if (!r) notFound();
+  const checkout = `${RECEPTIONIST_CHECKOUT}?client_reference_id=${encodeURIComponent(r.slug)}`;
   const mail = CONTACT_EMAIL
     ? `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(`AI receptionist for ${r.business}`)}`
     : "/#start";
@@ -80,9 +81,15 @@ export default async function TryReceptionist({ params }: { params: Promise<{ sl
           <p className="mx-auto mt-3 max-w-md opacity-90">
             Live in 3 days. Cancel the monthly anytime. One booked job usually pays for the whole month.
           </p>
-          <a href={mail} className="mt-6 inline-block rounded-full bg-white px-8 py-3.5 font-semibold text-[#111827]">
-            I want this for my business
+          <a href={checkout} className="mt-6 inline-block rounded-full bg-white px-8 py-3.5 font-semibold text-[#111827]">
+            Get {r.receptionist} for my business
           </a>
+          <p className="mt-4 text-sm opacity-80">
+            Questions first?{" "}
+            <a href={mail} className="underline">
+              Email Jose
+            </a>
+          </p>
         </section>
       </main>
     </div>
