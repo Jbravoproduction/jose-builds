@@ -1,0 +1,47 @@
+{
+  "slug": "mission-painting",
+  "business": "Mission Painting",
+  "trade": "Painting",
+  "city": "Ankeny, IA",
+  "owner": "Tyler",
+  "phone": "515-635-1177",
+  "receptionist": "Ava",
+  "hours": "Monday to Saturday, 7 AM to 8 PM, closed Sundays (Sunday messages answered Monday morning)",
+  "services": [
+    "Exterior painting",
+    "Interior painting",
+    "Deck and fence staining",
+    "Cabinet painting and staining",
+    "Trim, doors, ceilings and accent walls",
+    "Siding, soffits and fascia",
+    "Commercial painting"
+  ],
+  "areas": [
+    "Ankeny",
+    "Des Moines",
+    "West Des Moines",
+    "Urbandale",
+    "Johnston",
+    "Waukee",
+    "Clive",
+    "Altoona",
+    "Grimes",
+    "Adel",
+    "Ames",
+    "Bondurant",
+    "Indianola",
+    "Norwalk",
+    "Pleasant Hill",
+    "Polk City",
+    "Windsor Heights"
+  ],
+  "pricing": "Free estimates, and small jobs can be quoted from photos or a short video. The owner confirms the exact price.",
+  "notes": "Family-owned mother-son business run by Tyler and Tammy. Licensed and insured. 1-year workmanship warranty. Homeowner financing available. Uses Sherwin-Williams paint.",
+  "tries": [
+    "\"How much to paint my kitchen cabinets?\"",
+    "\"Can I send photos for a quote?\"",
+    "\"Do you stain decks in Johnston?\""
+  ],
+  "color": "#1d4ed8",
+  "created": "2026-11-20"
+}

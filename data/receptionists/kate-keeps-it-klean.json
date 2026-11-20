@@ -1,0 +1,43 @@
+{
+  "slug": "kate-keeps-it-klean",
+  "business": "Kate Keeps It Klean LLC",
+  "trade": "House Cleaning",
+  "city": "Waukee, IA",
+  "owner": "Kate",
+  "phone": "515-901-5655",
+  "receptionist": "Lily",
+  "hours": "Monday to Friday, 8 AM to 5 PM, and messages after hours",
+  "services": [
+    "Recurring cleaning (weekly, biweekly, monthly)",
+    "Deep cleaning",
+    "Move-in and move-out cleaning",
+    "Office cleaning",
+    "Commercial cleaning",
+    "Add-ons: oven, fridge, cabinets, interior windows, fresh linens"
+  ],
+  "areas": [
+    "Adel",
+    "Altoona",
+    "Ankeny",
+    "Bondurant",
+    "Carlisle",
+    "Clive",
+    "Grimes",
+    "Indianola",
+    "Johnston",
+    "Norwalk",
+    "Pleasant Hill",
+    "Urbandale",
+    "Waukee",
+    "West Des Moines"
+  ],
+  "pricing": "Free instant quote, with a 2-hour minimum booking. Kate confirms the exact price within one business day.",
+  "notes": "Mom-owned. Fully licensed and insured. Satisfaction guarantee: report a problem within 24 hours and they make it right. Recurring clients get priority scheduling.",
+  "tries": [
+    "\"How much for a deep clean of a 3-bedroom house?\"",
+    "\"Do you do move-out cleaning in Ankeny?\"",
+    "\"Can I add inside the fridge and oven?\""
+  ],
+  "color": "#35579c",
+  "created": "2026-11-20"
+}

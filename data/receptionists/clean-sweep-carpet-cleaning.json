@@ -1,0 +1,36 @@
+{
+  "slug": "clean-sweep-carpet-cleaning",
+  "business": "Clean Sweep Carpet Cleaning",
+  "trade": "Carpet Cleaning",
+  "city": "Ankeny, IA",
+  "phone": "515-965-2460",
+  "receptionist": "Grace",
+  "hours": "Monday to Friday, 8 AM to 5 PM, and messages after hours",
+  "services": [
+    "Carpet cleaning",
+    "Spot and stain removal",
+    "Pet treatment",
+    "Upholstery cleaning",
+    "Area rug cleaning",
+    "Tile and grout",
+    "Mattress cleaning",
+    "Air duct and dryer vent cleaning",
+    "RV cleaning",
+    "Flood restoration and water damage"
+  ],
+  "areas": [
+    "Ankeny",
+    "Des Moines",
+    "Urbandale",
+    "West Des Moines"
+  ],
+  "pricing": "Every job gets a free quote, and the owner confirms the exact price",
+  "notes": "Family owned and operated for 50 years. IICRC certified, Carpet and Rug Institute Seal of Approval, Green Seal certified products. 100% satisfaction guaranteed. Won the 2021 Des Moines Register Ankeny's Best award.",
+  "tries": [
+    "\"Can you get dog stains out of my living room carpet?\"",
+    "\"Do you clean couches too?\"",
+    "\"My basement flooded, can someone come out?\""
+  ],
+  "color": "#0284c7",
+  "created": "2026-11-20"
+}

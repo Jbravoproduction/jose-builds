@@ -1,0 +1,44 @@
+{
+  "slug": "elite-pressure-soft-wash-services",
+  "business": "Elite Pressure & Soft Wash Services LLC",
+  "trade": "Pressure Washing",
+  "city": "Ankeny, IA",
+  "owner": "Connor",
+  "phone": "515-371-2240",
+  "receptionist": "Sam",
+  "hours": "Monday to Friday, 8 AM to 5 PM, and messages after hours",
+  "services": [
+    "House washing",
+    "Soft washing",
+    "Pressure washing",
+    "Wood restoration",
+    "Window cleaning",
+    "Gutter cleaning",
+    "Staining",
+    "Paver sealing"
+  ],
+  "areas": [
+    "Ankeny",
+    "Des Moines",
+    "Ames",
+    "West Des Moines",
+    "Urbandale",
+    "Altoona",
+    "Waukee",
+    "Johnston",
+    "Clive",
+    "Grimes",
+    "Norwalk",
+    "Pleasant Hill",
+    "Indianola"
+  ],
+  "pricing": "Free estimates. Connor confirms the exact price.",
+  "notes": "Owner-operated: every estimate and every job is handled personally by Connor. Fully insured. 6+ years of industry experience.",
+  "tries": [
+    "\"How much to soft wash my vinyl siding?\"",
+    "\"Can you restore and stain my deck?\"",
+    "\"Do you seal pavers in Waukee?\""
+  ],
+  "color": "#0e7490",
+  "created": "2026-11-20"
+}

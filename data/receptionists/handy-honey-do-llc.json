@@ -1,0 +1,47 @@
+{
+  "slug": "handy-honey-do-llc",
+  "business": "Handy Honey Do LLC",
+  "trade": "Handyman",
+  "city": "Des Moines, IA",
+  "owner": "John",
+  "phone": "515-858-0858",
+  "receptionist": "Sam",
+  "hours": "Monday to Sunday, 9 AM to 9 PM, with emergency service after hours",
+  "services": [
+    "Door installation and repair",
+    "TV mounting",
+    "Dryer vent cleanout",
+    "General home repairs",
+    "Fence installation and repair",
+    "Plumbing fixture installation and repair",
+    "Light fixture and ceiling fan installation",
+    "Drywall repair",
+    "Landscaping and hedge trimming",
+    "Holiday lighting installation and removal (Nov-Dec)"
+  ],
+  "areas": [
+    "Des Moines",
+    "Ankeny",
+    "West Des Moines",
+    "Waukee",
+    "Clive",
+    "Urbandale",
+    "Windsor Heights",
+    "Johnston",
+    "Norwalk",
+    "Pleasant Hill",
+    "Altoona",
+    "Bondurant",
+    "Polk City",
+    "Grimes"
+  ],
+  "pricing": "General home repair visits have a $75 minimum. Free estimates, and John confirms the exact price.",
+  "notes": "Licensed and insured. Customers can call 515-858-0858 or text 515-305-4408. John spent 13 years as a Union Ironworker before starting the business.",
+  "tries": [
+    "\"Can you mount a 65-inch TV this weekend?\"",
+    "\"How much is a dryer vent cleanout?\"",
+    "\"Do you hang Christmas lights in Ankeny?\""
+  ],
+  "color": "#d97706",
+  "created": "2026-11-20"
+}

@@ -1,0 +1,36 @@
+{
+  "slug": "armstrongs-garage-door-service-repair",
+  "business": "Armstrong's Garage Door Service & Repair",
+  "trade": "Garage Doors",
+  "city": "Des Moines, IA",
+  "phone": "515-276-0653",
+  "receptionist": "Sam",
+  "hours": "Monday to Friday, 8 AM to 5 PM, and messages after hours",
+  "services": [
+    "Broken torsion spring repair and replacement",
+    "Garage door opener repair, tune-up and replacement",
+    "Cable repair",
+    "Roller installation",
+    "Track repair",
+    "Broken drum repair",
+    "Garage door tune-ups"
+  ],
+  "areas": [
+    "Des Moines",
+    "Waukee",
+    "Grimes",
+    "Urbandale",
+    "Johnston",
+    "Ankeny",
+    "West Des Moines"
+  ],
+  "pricing": "Free estimates. The owner confirms the exact price.",
+  "notes": "Fixing garage doors in Des Moines for over 25 years. Same-day service available. Keeps springs, cables, rollers and opener parts in stock. Recommends LiftMaster openers.",
+  "tries": [
+    "\"My garage door spring just snapped, can you come today?\"",
+    "\"Do you install LiftMaster openers?\"",
+    "\"My door is off the track in Urbandale.\""
+  ],
+  "color": "#b91c1c",
+  "created": "2026-11-20"
+}

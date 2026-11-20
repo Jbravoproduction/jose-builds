@@ -1,0 +1,39 @@
+{
+  "slug": "lawn-legends",
+  "business": "Lawn Legends",
+  "trade": "Lawn Care",
+  "city": "Des Moines, IA",
+  "phone": "515-421-9905",
+  "receptionist": "Mia",
+  "hours": "Monday to Sunday, 11:30 AM to 8 PM",
+  "services": [
+    "Mowing, edging and trimming",
+    "Leaf cleanup",
+    "Seasonal cleanups",
+    "Mulch refreshes",
+    "Shrub, hedge and small tree trimming",
+    "Gutter cleaning",
+    "Power washing",
+    "Core aeration and overseeding"
+  ],
+  "areas": [
+    "Des Moines",
+    "West Des Moines",
+    "Urbandale",
+    "Waukee",
+    "Clive",
+    "Ankeny",
+    "Johnston",
+    "Grimes",
+    "Windsor Heights"
+  ],
+  "pricing": "Free instant estimate. The owner confirms the exact price.",
+  "notes": "Residential lawn care and small property services. Customers can text or call 515-421-9905.",
+  "tries": [
+    "\"Can you do a leaf cleanup this week?\"",
+    "\"How much for weekly mowing next spring?\"",
+    "\"Do you clean gutters too?\""
+  ],
+  "color": "#16a34a",
+  "created": "2026-11-20"
+}

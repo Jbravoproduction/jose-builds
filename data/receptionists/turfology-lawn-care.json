@@ -1,0 +1,37 @@
+{
+  "slug": "turfology-lawn-care",
+  "business": "Turfology Lawn Care",
+  "trade": "Lawn Care",
+  "city": "West Des Moines, IA",
+  "phone": "515-808-2442",
+  "receptionist": "Grace",
+  "hours": "Monday to Thursday, 9 AM to 4 PM, closed Friday to Sunday, and messages after hours",
+  "services": [
+    "Lawn mowing",
+    "Landscape maintenance (beds, shrub trimming, mulch)",
+    "Property clean-ups",
+    "Fertilizer and weed control",
+    "Aeration and overseeding",
+    "Snow and ice removal"
+  ],
+  "areas": [
+    "West Des Moines",
+    "Des Moines",
+    "Clive",
+    "Cumming",
+    "Grimes",
+    "Johnston",
+    "Waukee",
+    "Windsor Heights",
+    "Urbandale"
+  ],
+  "pricing": "Weekly mowing runs $54.75 (up to 6,000 sq ft) to $96.50 (15,000 sq ft). Fertilizer and weed control runs $68.48 (up to 5,000 sq ft) to $105.04 (15,000 sq ft). Biweekly service adds 15%. Over 15,000 sq ft gets a custom quote. Estimates are free.",
+  "notes": "Licensed and insured. Over 5 years in business. Card is charged automatically at the end of the month.",
+  "tries": [
+    "\"How much is weekly mowing for a normal-size yard?\"",
+    "\"Do you do snow removal in Clive?\"",
+    "\"Can you aerate and overseed my lawn?\""
+  ],
+  "color": "#166534",
+  "created": "2026-11-20"
+}

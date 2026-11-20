@@ -1,0 +1,36 @@
+{
+  "slug": "candys-cleaning-llc",
+  "business": "Candy's Cleaning, LLC",
+  "trade": "House Cleaning",
+  "city": "Ankeny, IA",
+  "phone": "515-518-6133",
+  "receptionist": "Mia",
+  "hours": "Monday to Friday, 8 AM to 5 PM, closed weekends, and messages after hours",
+  "services": [
+    "House cleaning (basic and deep packages)",
+    "Office cleaning",
+    "New construction cleaning, including sawdust cleanup"
+  ],
+  "areas": [
+    "Des Moines",
+    "Ankeny",
+    "Waukee",
+    "Norwalk",
+    "Altoona",
+    "West Des Moines",
+    "Johnston",
+    "Grimes",
+    "Urbandale",
+    "Clive",
+    "Pleasant Hill"
+  ],
+  "pricing": "Free estimates. The owner confirms the exact price.",
+  "notes": "Family, local and woman-owned. Fully insured. Over 15 years of experience. Uses animal-safe products. Speaks English and Spanish. Takes cash, check, cards, Zelle and Venmo.",
+  "tries": [
+    "\"Do you do a deep clean for a whole house?\"",
+    "\"Can you clean up after our new build?\"",
+    "\"¿Hablan español?\""
+  ],
+  "color": "#db2777",
+  "created": "2026-11-20"
+}
