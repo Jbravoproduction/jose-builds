@@ -79,7 +79,7 @@ export default async function TryReceptionist({ params }: { params: Promise<{ sl
             $497 setup <span className="text-2xl font-semibold opacity-80">+ $97/mo</span>
           </p>
           <p className="mx-auto mt-3 max-w-md opacity-90">
-            Live in 3 days. Cancel the monthly anytime. One booked job usually pays for the whole month.
+            $594 today (setup + first month), then $97/mo. Live in 3 days. Cancel the monthly anytime. One booked job usually pays for the whole month.
           </p>
           <a href={checkout} className="mt-6 inline-block rounded-full bg-white px-8 py-3.5 font-semibold text-[#111827]">
             Get {r.receptionist} for my business
