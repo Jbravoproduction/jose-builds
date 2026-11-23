@@ -1,0 +1,44 @@
+{
+  "slug": "h-and-h-plumbing",
+  "business": "H & H Plumbing Inc.",
+  "trade": "Plumbing",
+  "city": "Granger, IA",
+  "phone": "515-277-5755",
+  "receptionist": "Grace",
+  "hours": "Monday to Friday, 8 AM to 5 PM, and messages after hours",
+  "services": [
+    "Residential plumbing repairs and fixture installs",
+    "Water heater installation and repair",
+    "Water treatment",
+    "Sewer line inspection, repair and replacement",
+    "Gas line installation",
+    "Kitchen and bath remodel plumbing"
+  ],
+  "areas": [
+    "Des Moines",
+    "Urbandale",
+    "West Des Moines",
+    "Windsor Heights",
+    "Altoona",
+    "Ankeny",
+    "Pleasant Hill",
+    "Granger",
+    "Grimes",
+    "Waukee",
+    "Clive",
+    "Johnston",
+    "Indianola",
+    "Norwalk",
+    "Polk City",
+    "Bondurant"
+  ],
+  "pricing": "Every job gets a free quote, and the owner confirms the exact price",
+  "notes": "Locally owned and family-operated. Licensed, bonded and insured. Over two decades in the plumbing trade. Residential and commercial.",
+  "tries": [
+    "\"My water heater stopped making hot water. Can someone come out?\"",
+    "\"Do you do work in Ankeny?\"",
+    "\"I need a gas line run for a new stove.\""
+  ],
+  "color": "#1d4ed8",
+  "created": "2026-11-23"
+}

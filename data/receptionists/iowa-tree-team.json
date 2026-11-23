@@ -1,0 +1,43 @@
+{
+  "slug": "iowa-tree-team",
+  "business": "Iowa Tree Team",
+  "trade": "Tree Service",
+  "city": "Des Moines, IA",
+  "owner": "Brandon",
+  "phone": "515-802-0092",
+  "receptionist": "Ava",
+  "hours": "Monday to Friday, 8 AM to 5 PM, and messages after hours",
+  "services": [
+    "Tree removal",
+    "Spikeless pruning",
+    "Tree cabling",
+    "Stump grinding",
+    "Hydroseeding",
+    "Mulching"
+  ],
+  "areas": [
+    "Des Moines",
+    "West Des Moines",
+    "Ankeny",
+    "Urbandale",
+    "Johnston",
+    "Clive",
+    "Waukee",
+    "Altoona",
+    "Norwalk",
+    "Grimes",
+    "Pleasant Hill",
+    "Carlisle",
+    "Adel",
+    "Polk City"
+  ],
+  "pricing": "Free consultation and free quote with upfront, honest estimates and no hidden fees. Discounts for veterans, first responders, nurses and teachers. The owner confirms the exact price.",
+  "notes": "Veteran-founded. Fully licensed and insured, including liability and workers' comp.",
+  "tries": [
+    "\"Can you take down a dead tree in my backyard?\"",
+    "\"Do you grind stumps too?\"",
+    "\"Do you have a veteran discount?\""
+  ],
+  "color": "#2f6b2f",
+  "created": "2026-11-23"
+}

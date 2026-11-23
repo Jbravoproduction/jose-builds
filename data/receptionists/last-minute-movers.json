@@ -1,0 +1,39 @@
+{
+  "slug": "last-minute-movers",
+  "business": "Last Minute Movers",
+  "trade": "Moving",
+  "city": "Des Moines, IA",
+  "phone": "515-561-2688",
+  "receptionist": "Mia",
+  "hours": "Monday to Sunday, 8 AM to 10 PM",
+  "services": [
+    "House and apartment moving",
+    "Piano moving",
+    "Appliance and furniture moving",
+    "Packing",
+    "Junk removal and hauling",
+    "PODS and U-Haul loading and unloading"
+  ],
+  "areas": [
+    "Des Moines",
+    "Altoona",
+    "Ankeny",
+    "Waukee",
+    "Clive",
+    "Grimes",
+    "Norwalk",
+    "Johnston",
+    "West Des Moines",
+    "Windsor Heights",
+    "Madison County"
+  ],
+  "pricing": "Free estimates. 5% discount for seniors and military, a discount for first responders and firefighters, and a 5% referral discount. The owner confirms the exact price.",
+  "notes": "18+ years in business. Licensed and insured. Same-day and short-notice moves. Also does interstate moves, estate clear-outs and in-store pickups.",
+  "tries": [
+    "\"Can you move a 2-bedroom apartment this Saturday?\"",
+    "\"Do you move pianos?\"",
+    "\"Can you just load my U-Haul?\""
+  ],
+  "color": "#ea580c",
+  "created": "2026-11-23"
+}

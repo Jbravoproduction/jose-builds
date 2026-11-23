@@ -1,0 +1,30 @@
+{
+  "slug": "dm-repair",
+  "business": "DM Repair",
+  "trade": "Appliance Repair",
+  "city": "Des Moines, IA",
+  "phone": "515-344-2862",
+  "receptionist": "Ava",
+  "hours": "Monday to Friday, 8 AM to 4:30 PM, and messages after hours",
+  "services": [
+    "Refrigerator repair",
+    "Washer repair",
+    "Dryer repair",
+    "Dishwasher repair",
+    "Oven repair",
+    "Commercial appliance service"
+  ],
+  "areas": [
+    "Des Moines and surrounding areas",
+    "Central Iowa"
+  ],
+  "pricing": "Every job gets a free quote, and the owner confirms the exact price",
+  "notes": "Over 10 years in business on the south side of Des Moines. All parts and labor are guaranteed. Same or next day service is available. Customers can call or text.",
+  "tries": [
+    "\"My fridge stopped cooling. Can someone come today?\"",
+    "\"My dryer runs but doesn't heat.\"",
+    "\"Do you fix dishwashers in West Des Moines?\""
+  ],
+  "color": "#0f766e",
+  "created": "2026-11-23"
+}

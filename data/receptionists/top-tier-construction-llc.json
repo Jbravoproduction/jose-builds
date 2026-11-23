@@ -1,0 +1,41 @@
+{
+  "slug": "top-tier-construction-llc",
+  "business": "Top Tier Construction LLC",
+  "trade": "Concrete",
+  "city": "West Des Moines, IA",
+  "owner": "Alexis",
+  "phone": "515-305-4335",
+  "receptionist": "Grace",
+  "hours": "Monday to Friday, 8 AM to 5 PM, and messages after hours",
+  "services": [
+    "Concrete driveways (install and repair)",
+    "Stamped and colored concrete",
+    "Patios",
+    "Sidewalks and walkways",
+    "Concrete flooring",
+    "Curbs, gutters and retaining walls"
+  ],
+  "areas": [
+    "Des Moines",
+    "Norwalk",
+    "Johnston",
+    "Ankeny",
+    "Grimes",
+    "Bondurant",
+    "West Des Moines",
+    "Clive",
+    "Waukee",
+    "Urbandale",
+    "Polk City",
+    "Windsor Heights"
+  ],
+  "pricing": "Free, no-obligation estimates. The owner confirms the exact price.",
+  "notes": "Local, family-owned concrete contractor. The owner is personally involved in every project. 20+ years of concrete experience. Fully licensed and insured. Financing available.",
+  "tries": [
+    "\"How much for a new driveway?\"",
+    "\"Do you do stamped concrete patios?\"",
+    "\"Can you fix a cracked sidewalk in Clive?\""
+  ],
+  "color": "#57534e",
+  "created": "2026-11-23"
+}

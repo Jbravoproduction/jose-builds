@@ -1,0 +1,38 @@
+{
+  "slug": "roofing-experts",
+  "business": "Roofing Experts",
+  "trade": "Roofing",
+  "city": "Norwalk, IA",
+  "phone": "515-975-6834",
+  "receptionist": "Sam",
+  "hours": "Monday to Friday, 8 AM to 5 PM. Weekends and after hours by appointment.",
+  "services": [
+    "Residential roofing",
+    "Gutter installation",
+    "Attic insulation",
+    "Attic ventilation",
+    "Roof inspections"
+  ],
+  "areas": [
+    "Des Moines",
+    "Norwalk",
+    "Altoona",
+    "Ankeny",
+    "Indianola",
+    "Johnston",
+    "Waukee",
+    "Ames",
+    "Winterset",
+    "Pella",
+    "Newton"
+  ],
+  "pricing": "Free same-day estimates and roof inspections. The owner confirms the exact price.",
+  "notes": "Family-owned and operated, serving Des Moines homeowners since 2016. All roofs warrantied. Takes Visa, MasterCard, American Express and Discover. Financing available.",
+  "tries": [
+    "\"I think hail damaged my roof. Can you inspect it?\"",
+    "\"Do you install gutters too?\"",
+    "\"Do you offer financing on a new roof?\""
+  ],
+  "color": "#b91c1c",
+  "created": "2026-11-23"
+}

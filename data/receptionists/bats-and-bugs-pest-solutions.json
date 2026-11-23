@@ -1,0 +1,44 @@
+{
+  "slug": "bats-and-bugs-pest-solutions",
+  "business": "Bats and Bugs Pest Solutions",
+  "trade": "Pest Control",
+  "city": "Urbandale, IA",
+  "owner": "Corey",
+  "phone": "515-218-3400",
+  "receptionist": "Lily",
+  "hours": "Monday to Friday, 8 AM to 5 PM, and messages after hours",
+  "services": [
+    "Insect and mosquito treatment",
+    "Mouse and rat control",
+    "Bat removal",
+    "Wildlife removal (raccoons, squirrels, woodchucks)",
+    "Bird removal",
+    "Mole, vole, gopher and groundhog removal"
+  ],
+  "areas": [
+    "Des Moines",
+    "West Des Moines",
+    "Clive",
+    "Urbandale",
+    "Waukee",
+    "Grimes",
+    "Johnston",
+    "Indianola",
+    "Altoona",
+    "Pleasant Hill",
+    "Ankeny",
+    "Polk City",
+    "Adel",
+    "Winterset",
+    "Ames"
+  ],
+  "pricing": "Free in-person estimates with clear, fair pricing. The owner confirms the exact price.",
+  "notes": "Family-owned and operated, serving the Des Moines metro for 25 years. Fully licensed technicians. Licensed by the Iowa DNR for nuisance wildlife. Typical response time is 24 hours, and emergency service is available.",
+  "tries": [
+    "\"I think there are bats in my attic. What do I do?\"",
+    "\"Something is digging tunnels in my lawn.\"",
+    "\"Can you come out this week for mice in the garage?\""
+  ],
+  "color": "#7c3aed",
+  "created": "2026-11-23"
+}

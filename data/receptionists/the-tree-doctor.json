@@ -1,0 +1,42 @@
+{
+  "slug": "the-tree-doctor",
+  "business": "The Tree Doctor",
+  "trade": "Tree Service",
+  "city": "Urbandale, IA",
+  "phone": "515-333-8733",
+  "receptionist": "Sam",
+  "hours": "Monday to Friday, 8 AM to 5 PM, and messages after hours",
+  "services": [
+    "Tree trimming and pruning",
+    "Full tree removal",
+    "Stump grinding and cleanup",
+    "Deep root fertilization",
+    "Tree disease diagnosis and treatment",
+    "Emergency and storm damage removal"
+  ],
+  "areas": [
+    "Des Moines",
+    "Ankeny",
+    "West Des Moines",
+    "Waukee",
+    "Clive",
+    "Johnston",
+    "Urbandale",
+    "Altoona",
+    "Norwalk",
+    "Pleasant Hill",
+    "Indianola",
+    "Grimes",
+    "Bondurant",
+    "Polk City"
+  ],
+  "pricing": "Every job gets a free quote, and the owner confirms the exact price",
+  "notes": "Licensed, insured and locally trusted. Flexible scheduling and fast response times. Customers can call, text or request a free estimate online.",
+  "tries": [
+    "\"My maple has spots on the leaves. Can you look at it?\"",
+    "\"A branch fell on my fence in the storm. Can someone come out?\"",
+    "\"How much to trim two big oaks?\""
+  ],
+  "color": "#3f7d3a",
+  "created": "2026-11-23"
+}

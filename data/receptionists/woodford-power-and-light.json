@@ -1,0 +1,32 @@
+{
+  "slug": "woodford-power-and-light",
+  "business": "Woodford Power & Light Co.",
+  "trade": "Electrical",
+  "city": "Ankeny, IA",
+  "owner": "Paula",
+  "phone": "515-313-3157",
+  "receptionist": "Mia",
+  "hours": "Monday to Friday, 8 AM to 5 PM, and messages after hours",
+  "services": [
+    "Electrical service upgrades and repairs",
+    "Lighting design and LED retrofits",
+    "EV charger installation",
+    "Generator installation",
+    "Surge and lightning protection",
+    "Code compliance upgrades"
+  ],
+  "areas": [
+    "Ankeny",
+    "Greater Des Moines",
+    "Central Iowa"
+  ],
+  "pricing": "Every job gets a free quote, and the owner confirms the exact price",
+  "notes": "Family-owned. Local, licensed and insured. Master electrician with over 10 years serving the Des Moines area. Residential, commercial and industrial work.",
+  "tries": [
+    "\"Can you install an EV charger in my garage?\"",
+    "\"My breakers keep tripping. Can someone take a look?\"",
+    "\"Do you put in whole-house generators?\""
+  ],
+  "color": "#f59e0b",
+  "created": "2026-11-23"
+}
