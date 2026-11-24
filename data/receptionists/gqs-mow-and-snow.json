@@ -1,0 +1,42 @@
+{
+  "slug": "gqs-mow-and-snow",
+  "business": "GQ's Mow & Snow",
+  "trade": "Snow Removal",
+  "city": "West Des Moines, IA",
+  "phone": "(515) 212-5411",
+  "receptionist": "Sam",
+  "hours": "Monday to Friday, 8 AM to 5 PM, and messages after hours",
+  "services": [
+    "Snow removal for driveways, sidewalks and entryways",
+    "Mowing",
+    "Yard edging",
+    "Fall and leaf cleanup",
+    "General yard work: mulching, cleanup, tree and bush trimming"
+  ],
+  "areas": [
+    "Des Moines",
+    "West Des Moines",
+    "Ankeny",
+    "Urbandale",
+    "Johnston",
+    "Clive",
+    "Waukee",
+    "Saylorville",
+    "Altoona",
+    "Norwalk",
+    "Grimes",
+    "Cumming",
+    "Pleasant Hill",
+    "Carlisle",
+    "Adel"
+  ],
+  "pricing": "Snow removal starts at $85 (about 30 minutes). Mowing starts at $45. Yard edging starts at $10. Yard work and leaf cleanup are $80 an hour with a 1-hour minimum. Free estimates, and the owner confirms the exact price.",
+  "notes": "Close-knit, family-owned, locally owned and operated business based in West Des Moines.",
+  "tries": [
+    "\"How much to clear my driveway after a snow?\"",
+    "\"Do you come out to Ankeny?\"",
+    "\"Can you do a leaf cleanup this week?\""
+  ],
+  "color": "#1d4ed8",
+  "created": "2026-11-24"
+}

@@ -1,0 +1,34 @@
+{
+  "slug": "diamond-house-cleaning",
+  "business": "Diamond House Cleaning",
+  "trade": "House Cleaning",
+  "city": "Urbandale, IA",
+  "owner": "Stephanie",
+  "phone": "515-513-3187",
+  "receptionist": "Grace",
+  "hours": "Monday to Friday, 8 AM to 5 PM, and messages after hours",
+  "services": [
+    "Recurring house cleaning, weekly or every other week",
+    "Deep cleaning",
+    "Move-in and move-out cleaning",
+    "Post-construction cleaning",
+    "Apartment cleaning"
+  ],
+  "areas": [
+    "Ankeny",
+    "Johnston",
+    "Bondurant",
+    "Altoona",
+    "Des Moines",
+    "Urbandale"
+  ],
+  "pricing": "$50 an hour with a $125 minimum visit. Estimates are based on room count and type of clean. First-time clients get 50% off their second cleaning. No contracts.",
+  "notes": "Locally owned, not a franchise. Serving central Iowa since 2021. Fully insured with background-checked cleaners. 4.9 stars from over 100 Google reviews.",
+  "tries": [
+    "\"How much for a deep clean of a 3-bedroom house?\"",
+    "\"Do you clean in Ankeny?\"",
+    "\"Can I get a move-out cleaning next week?\""
+  ],
+  "color": "#0ea5e9",
+  "created": "2026-11-24"
+}

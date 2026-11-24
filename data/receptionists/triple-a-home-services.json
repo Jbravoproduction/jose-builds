@@ -1,0 +1,32 @@
+{
+  "slug": "triple-a-home-services",
+  "business": "Triple A Home Services",
+  "trade": "HVAC",
+  "city": "Norwalk, IA",
+  "owner": "Dale",
+  "phone": "515-868-2779",
+  "receptionist": "Mia",
+  "hours": "Monday to Friday, 8 AM to 5 PM, and messages after hours",
+  "services": [
+    "Gas furnace repair, maintenance and replacement",
+    "Air conditioning",
+    "Mini split heat pumps",
+    "Indoor air quality",
+    "Boilers and multi-unit housing",
+    "Refrigeration"
+  ],
+  "areas": [
+    "Norwalk",
+    "Greater Des Moines",
+    "Central Iowa"
+  ],
+  "pricing": "Every job gets a free quote, and the owner confirms the exact price. Financing is available.",
+  "notes": "Family-owned and operated. Dale has 40+ years in HVAC and is a Master Mechanical Contractor. Licensed and insured. Customers can also text 515-305-3592.",
+  "tries": [
+    "\"My furnace stopped working, can someone come today?\"",
+    "\"Do you install mini splits?\"",
+    "\"Do you offer financing on a new furnace?\""
+  ],
+  "color": "#dc2626",
+  "created": "2026-11-24"
+}

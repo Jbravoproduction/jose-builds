@@ -1,0 +1,46 @@
+{
+  "slug": "larkin-landscape-and-design",
+  "business": "Larkin Landscape and Design",
+  "trade": "Landscaping",
+  "city": "Johnston, IA",
+  "phone": "(515) 219-4578",
+  "receptionist": "Lily",
+  "hours": "Monday to Friday, 8 AM to 5 PM, and messages after hours",
+  "services": [
+    "Paver patios",
+    "Retaining walls",
+    "Walkways",
+    "Outdoor kitchens and living spaces",
+    "Fire pits",
+    "Landscape design and installation",
+    "Outdoor lighting",
+    "Water features",
+    "Snow and ice control"
+  ],
+  "areas": [
+    "Ankeny",
+    "Waukee",
+    "Johnston",
+    "West Des Moines",
+    "Urbandale",
+    "Grimes",
+    "Clive",
+    "Des Moines",
+    "Altoona",
+    "Ames",
+    "Bondurant",
+    "Norwalk",
+    "Polk City",
+    "Indianola",
+    "Adel"
+  ],
+  "pricing": "Free, commitment-free estimates, and a free 2D design on qualifying projects. The owner confirms the exact price.",
+  "notes": "Owner-led hardscaping and landscape design. 10-year hardscape warranty, including retaining walls. Call or text, and a real person from the crew reaches out.",
+  "tries": [
+    "\"How much does a paver patio cost?\"",
+    "\"Do you do retaining walls in Waukee?\"",
+    "\"Can I get a free design for my backyard?\""
+  ],
+  "color": "#aa271e",
+  "created": "2026-11-24"
+}

@@ -1,0 +1,39 @@
+{
+  "slug": "stretch-property-maintenance",
+  "business": "Stretch Property Maintenance",
+  "trade": "Snow Removal",
+  "city": "Granger, IA",
+  "owner": "Joshua",
+  "phone": "515-505-6227",
+  "receptionist": "Ava",
+  "hours": "Monday to Friday, 8 AM to 5 PM, and messages after hours",
+  "services": [
+    "Residential snow removal for driveways, sidewalks and entries",
+    "Commercial snow removal",
+    "Weekly lawn mowing",
+    "Core aeration and overseeding",
+    "Fertilization and weed control",
+    "Trimming, pruning and leaf removal"
+  ],
+  "areas": [
+    "Granger",
+    "Grimes",
+    "Johnston",
+    "Urbandale",
+    "Ankeny",
+    "Clive",
+    "Des Moines",
+    "Polk City",
+    "Waukee",
+    "West Des Moines"
+  ],
+  "pricing": "Free written quotes. Residential snow removal is billed per push, and commercial snow is a service agreement. The owner confirms the exact price.",
+  "notes": "Locally owned, founded by Joshua, a local Iowan. Started helping neighbors around Granger. Fully licensed and insured. Leaves a written notice after each visit, invoices online. Usually responds the same day. 5.0 stars on Google.",
+  "tries": [
+    "\"How much per push for my driveway?\"",
+    "\"Do you plow in Johnston?\"",
+    "\"Can you add my sidewalk too?\""
+  ],
+  "color": "#16a34a",
+  "created": "2026-11-24"
+}

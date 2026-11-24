@@ -1,0 +1,47 @@
+{
+  "slug": "cook-landscapes-and-dirt-works",
+  "business": "Cook Landscapes & Dirt Works",
+  "trade": "Landscaping",
+  "city": "Des Moines, IA",
+  "phone": "(515) 330-8954",
+  "receptionist": "Grace",
+  "hours": "Monday to Friday, 8 AM to 5 PM, and messages after hours",
+  "services": [
+    "Excavating and grading",
+    "Hardscaping",
+    "Landscaping",
+    "Rock driveways",
+    "Hydroseeding, sod and grass seeding",
+    "Artificial turf",
+    "Erosion control",
+    "Land clearing",
+    "Landscape lighting",
+    "Commercial snow removal"
+  ],
+  "areas": [
+    "Des Moines",
+    "West Des Moines",
+    "Ankeny",
+    "Urbandale",
+    "Clive",
+    "Johnston",
+    "Grimes",
+    "Altoona",
+    "Pleasant Hill",
+    "Carlisle",
+    "Indianola",
+    "Norwalk",
+    "Bondurant",
+    "Adel",
+    "Polk City"
+  ],
+  "pricing": "Free consultations and estimates. Cost depends on the project, and the owner confirms the exact price.",
+  "notes": "Licensed and insured landscaping and excavation company. Handles both the dirt work and the finished landscape.",
+  "tries": [
+    "\"How much for a rock driveway?\"",
+    "\"Can you regrade my yard so water drains away?\"",
+    "\"Do you install sod in Altoona?\""
+  ],
+  "color": "#92400e",
+  "created": "2026-11-24"
+}

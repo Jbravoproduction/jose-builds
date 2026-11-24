@@ -1,0 +1,33 @@
+{
+  "slug": "double-take-lawn-services",
+  "business": "Double Take Lawn Services LLC",
+  "trade": "Snow Removal",
+  "city": "Des Moines, IA",
+  "phone": "515-380-2960",
+  "receptionist": "Mia",
+  "hours": "Monday to Friday, 8 AM to 5 PM, and messages after hours",
+  "services": [
+    "Residential driveway snow removal",
+    "Sidewalk snow removal",
+    "Ice management with salt brine spray",
+    "Snow stakes with seasonal contracts",
+    "Commercial snow removal",
+    "Mowing",
+    "Aeration and overseeding",
+    "Leaf clean-ups",
+    "Landscape maintenance"
+  ],
+  "areas": [
+    "East Des Moines (50317)",
+    "Northwest Pleasant Hill"
+  ],
+  "pricing": "Snow removal is a $75 minimum per push, or a $1,129.50 minimum for the season. The owner confirms the exact price.",
+  "notes": "Locally, independently and veteran-owned. Fully insured. Snow season runs Nov 15 to Apr 1. Service starts once snowfall passes 2 inches, usually within 12 hours after the snow stops (up to 24 hours in big storms). Call or text. Des Moines Peoples' Choice Award 2025 (Silver), Nextdoor Neighborhood Faves 2023-2025.",
+  "tries": [
+    "\"How much is a seasonal snow contract?\"",
+    "\"Do you plow in Pleasant Hill?\"",
+    "\"When will you come after it snows?\""
+  ],
+  "color": "#6b3fa0",
+  "created": "2026-11-24"
+}

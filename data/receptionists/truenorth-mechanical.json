@@ -1,0 +1,40 @@
+{
+  "slug": "truenorth-mechanical",
+  "business": "TrueNorth Mechanical LLC",
+  "trade": "HVAC",
+  "city": "Indianola, IA",
+  "phone": "515-988-9020",
+  "receptionist": "Lily",
+  "hours": "Monday to Friday, 8 AM to 5 PM, and messages after hours",
+  "services": [
+    "Furnace repair",
+    "AC repair",
+    "AC and furnace installation",
+    "Heat pumps",
+    "Ductless mini-splits",
+    "Ductwork",
+    "Commercial HVAC and refrigeration",
+    "Emergency service"
+  ],
+  "areas": [
+    "Indianola",
+    "Des Moines",
+    "Norwalk",
+    "Carlisle",
+    "Pleasantville",
+    "Altoona",
+    "Ankeny",
+    "Winterset",
+    "Polk County",
+    "Warren County"
+  ],
+  "pricing": "Free replacement estimates. After-hours and Sunday service may cost extra. The owner confirms the exact price.",
+  "notes": "Locally owned, Iowa-licensed and insured, nearly two decades of experience. Carrier dealer. Call or text the same number. Online invoice payments.",
+  "tries": [
+    "\"My furnace is making a loud noise, can you look at it?\"",
+    "\"How much to replace my AC?\"",
+    "\"Do you come out to Norwalk?\""
+  ],
+  "color": "#1e40af",
+  "created": "2026-11-24"
+}

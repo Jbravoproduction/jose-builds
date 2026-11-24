@@ -1,0 +1,40 @@
+{
+  "slug": "vanderpool-plumbing-heating",
+  "business": "Vanderpool Plumbing, Heating, Air Conditioning & Electrical",
+  "trade": "HVAC",
+  "city": "Indianola, IA",
+  "phone": "(515) 961-6796",
+  "receptionist": "Ava",
+  "hours": "Monday to Friday, 7 AM to 4 PM, and messages after hours",
+  "services": [
+    "Furnace sales, installation and repair",
+    "Air conditioning service",
+    "Geothermal and heat pumps",
+    "Radiant floor heating",
+    "Water heaters",
+    "Plumbing repair, drains and sump pumps",
+    "Electrical repair, panels and generators",
+    "Kitchen and bath remodels"
+  ],
+  "areas": [
+    "Indianola",
+    "Norwalk",
+    "Lacona",
+    "Milo",
+    "Pleasantville",
+    "Carlisle",
+    "Cumming",
+    "Spring Hill",
+    "Hartford",
+    "Martensdale"
+  ],
+  "pricing": "Free estimates, and the owner confirms the exact price.",
+  "notes": "Family owned and operated since 1977. Licensed, bonded and insured. Accepts personal checks. Best of Warren County 2020.",
+  "tries": [
+    "\"My water heater is leaking, can you come out?\"",
+    "\"How much for a new furnace?\"",
+    "\"Do you work in Norwalk?\""
+  ],
+  "color": "#b91c1c",
+  "created": "2026-11-24"
+}

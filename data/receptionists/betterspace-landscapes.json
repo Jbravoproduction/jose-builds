@@ -1,0 +1,40 @@
+{
+  "slug": "betterspace-landscapes",
+  "business": "Betterspace Landscapes LLC",
+  "trade": "Landscaping",
+  "city": "Ankeny, IA",
+  "owner": "Dillon",
+  "phone": "(515) 238-1060",
+  "receptionist": "Sam",
+  "hours": "Monday to Friday, 7 AM to 7 PM, Saturday 8 AM to 1 PM, closed Sunday",
+  "services": [
+    "Hardscapes: patios, retaining walls, walkways, fire pits",
+    "Landscaping: plantings, mulching, edging, landscape beds",
+    "Hardscape repairs",
+    "Seasonal maintenance: weeding, pruning, leaf and bed cleanup",
+    "Snow and ice removal"
+  ],
+  "areas": [
+    "Ankeny",
+    "West Des Moines",
+    "Urbandale",
+    "Norwalk",
+    "Carlisle",
+    "Altoona",
+    "Bondurant",
+    "Clive",
+    "Des Moines",
+    "Johnston",
+    "Polk City",
+    "Grimes"
+  ],
+  "pricing": "Every job gets a free quote, and the owner confirms the exact price. Free estimates and transparent pricing.",
+  "notes": "Licensed and insured. Dillon is the President and follows up on estimate requests personally.",
+  "tries": [
+    "\"Do you do snow removal for driveways in Ankeny?\"",
+    "\"How much for a new fire pit?\"",
+    "\"Can someone come look at my retaining wall?\""
+  ],
+  "color": "#15803d",
+  "created": "2026-11-24"
+}
