@@ -1,0 +1,45 @@
+{
+  "slug": "iowa-appliance-repair",
+  "business": "Iowa Appliance Repair",
+  "trade": "Appliance Repair",
+  "city": "Des Moines, IA",
+  "phone": "(515) 509-2592",
+  "receptionist": "Sam",
+  "hours": "Monday to Friday, 8 AM to 6 PM",
+  "services": [
+    "Refrigerator and freezer repair",
+    "Dishwasher repair",
+    "Washer and dryer repair",
+    "Range, oven and cooktop repair",
+    "Microwave and vent hood repair",
+    "Ice maker repair",
+    "Dryer vent cleaning",
+    "Installation for select appliances"
+  ],
+  "areas": [
+    "Des Moines",
+    "West Des Moines",
+    "Ankeny",
+    "Urbandale",
+    "Johnston",
+    "Clive",
+    "Waukee",
+    "Altoona",
+    "Grimes",
+    "Pleasant Hill",
+    "Norwalk",
+    "Ames",
+    "Bondurant",
+    "Polk City",
+    "Windsor Heights"
+  ],
+  "pricing": "$99 assessment, collected when you schedule (not applied to the repair). Parts and labor are quoted upfront at flat-rate pricing. Dryer vent cleaning starts at $224. No extra trip fee if an approved repair needs more than one visit.",
+  "notes": "Locally owned and owner-operated since April 2022. Fully insured, EPA certified, uses OEM parts when available. Payment is collected after the repair is done. Online booking available.",
+  "tries": [
+    "\"My fridge stopped cooling, how soon can you come?\"",
+    "\"How much is the service call?\"",
+    "\"Do you clean dryer vents?\""
+  ],
+  "color": "#0f766e",
+  "created": "2026-11-25"
+}

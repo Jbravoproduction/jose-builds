@@ -1,0 +1,31 @@
+{
+  "slug": "premier-gutters",
+  "business": "Premier Gutters",
+  "trade": "Gutters",
+  "city": "Des Moines, IA",
+  "phone": "(515) 664-4695",
+  "receptionist": "Ava",
+  "hours": "Monday to Friday, 8 AM to 5 PM, and messages after hours",
+  "services": [
+    "Seamless gutters (residential and commercial)",
+    "Gutter guards",
+    "Gutter cleaning",
+    "Downspouts",
+    "Fascia and soffit repair",
+    "Color matching",
+    "Tear-down and debris haul",
+    "Seasonal snow removal"
+  ],
+  "areas": [
+    "Des Moines metro and surrounding areas"
+  ],
+  "pricing": "Every job gets a free quote, and the owner confirms the exact price. Free inspection, and a discount for senior citizens.",
+  "notes": "Family-owned. The owner personally goes out to inspect every job. Fully insured, with a warranty on services. Reach by phone or email.",
+  "tries": [
+    "\"Can you put gutter guards on my house?\"",
+    "\"Do you do senior discounts?\"",
+    "\"My downspout came loose, can someone look at it?\""
+  ],
+  "color": "#1e5aa8",
+  "created": "2026-11-25"
+}

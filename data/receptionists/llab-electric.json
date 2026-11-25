@@ -1,0 +1,30 @@
+{
+  "slug": "llab-electric",
+  "business": "LLAB Electric",
+  "trade": "Electrical",
+  "city": "Des Moines, IA",
+  "phone": "515-979-9268",
+  "receptionist": "Mia",
+  "hours": "Monday to Friday, with weekends for urgent service calls",
+  "services": [
+    "Residential electrical",
+    "Commercial electrical",
+    "New construction",
+    "Upgrades",
+    "Remodels",
+    "Repairs",
+    "Urgent service calls"
+  ],
+  "areas": [
+    "Des Moines and surrounding areas"
+  ],
+  "pricing": "Every job gets a free quote, and the owner confirms the exact price.",
+  "notes": "Locally owned, licensed and insured. The owner is a third-generation Master Electrician with over 25 years of experience. Works closely with inspectors, builders and contractors.",
+  "tries": [
+    "\"Half my outlets stopped working, can someone come out?\"",
+    "\"Can you upgrade my electrical panel?\"",
+    "\"Do you wire basement remodels?\""
+  ],
+  "color": "#f59e0b",
+  "created": "2026-11-25"
+}

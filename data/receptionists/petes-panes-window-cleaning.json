@@ -1,0 +1,44 @@
+{
+  "slug": "petes-panes-window-cleaning",
+  "business": "Pete's Panes Window Cleaning",
+  "trade": "Window Cleaning",
+  "city": "Clive, IA",
+  "owner": "Pete",
+  "phone": "515-412-0575",
+  "receptionist": "Lily",
+  "hours": "Monday to Friday, 8 AM to 5 PM, and messages after hours",
+  "services": [
+    "Residential window cleaning (inside, outside, storm, egress, skylights)",
+    "Screen cleaning",
+    "Window cleaning subscription",
+    "Commercial window cleaning"
+  ],
+  "areas": [
+    "Des Moines",
+    "West Des Moines",
+    "Clive",
+    "Urbandale",
+    "Johnston",
+    "Ankeny",
+    "Altoona",
+    "Waukee",
+    "Grimes",
+    "Bondurant",
+    "Carlisle",
+    "Norwalk",
+    "Indianola",
+    "Pleasant Hill",
+    "Windsor Heights",
+    "Adel",
+    "Van Meter"
+  ],
+  "pricing": "Every job gets a free quote, and the owner confirms the exact price.",
+  "notes": "Local, family-owned and operated, started in 2014 by Pete and Cassie. Free quotes. Subscription plans for regular cleanings.",
+  "tries": [
+    "\"How much to clean all the windows on a two-story house?\"",
+    "\"Do you clean screens too?\"",
+    "\"Do you come out to Grimes?\""
+  ],
+  "color": "#0ea5e9",
+  "created": "2026-11-25"
+}

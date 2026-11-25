@@ -1,0 +1,34 @@
+{
+  "slug": "central-iowas-neighborhood-handyman",
+  "business": "Central Iowa's Neighborhood Handyman",
+  "trade": "Handyman",
+  "city": "Des Moines, IA",
+  "phone": "(515) 441-0009",
+  "receptionist": "Sam",
+  "hours": "Monday to Friday 8 AM to 6 PM, Saturday by appointment, closed Sunday",
+  "services": [
+    "Carpentry and installations",
+    "Repairs and maintenance",
+    "Minor electrical and plumbing",
+    "Painting and touch-ups",
+    "Assembly and mounting",
+    "Seasonal to-dos"
+  ],
+  "areas": [
+    "Des Moines",
+    "Ankeny",
+    "West Des Moines",
+    "Urbandale",
+    "Altoona",
+    "Carlisle"
+  ],
+  "pricing": "Every job gets a free quote, and the owner confirms the exact price. Free, no-pressure quotes with upfront estimates.",
+  "notes": "Locally owned, licensed and insured. No project too minor. Most small jobs are scheduled within a few days. Takes credit and debit cards.",
+  "tries": [
+    "\"Can you mount a TV on my wall?\"",
+    "\"I have a list of small fixes, do you do that?\"",
+    "\"Can someone come Saturday?\""
+  ],
+  "color": "#0d5c63",
+  "created": "2026-11-25"
+}

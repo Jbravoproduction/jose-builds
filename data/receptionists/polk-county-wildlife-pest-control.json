@@ -1,0 +1,42 @@
+{
+  "slug": "polk-county-wildlife-pest-control",
+  "business": "Polk County Wildlife & Pest Control",
+  "trade": "Pest Control",
+  "city": "Ankeny, IA",
+  "phone": "641-425-9798",
+  "receptionist": "Sam",
+  "hours": "Monday to Friday, 8 AM to 5 PM, and messages after hours",
+  "services": [
+    "General pest control (spiders, ants, wasps, mice)",
+    "Nuisance wildlife removal",
+    "Bat control",
+    "Bird removal",
+    "Raccoon removal",
+    "Skunk removal",
+    "Groundhog removal",
+    "Goose control"
+  ],
+  "areas": [
+    "Ankeny",
+    "Altoona",
+    "Clive",
+    "Des Moines",
+    "Grimes",
+    "Johnston",
+    "Pleasant Hill",
+    "Urbandale",
+    "West Des Moines",
+    "Waukee",
+    "Polk City",
+    "Bondurant"
+  ],
+  "pricing": "Every job gets a free quote, and the owner confirms the exact price.",
+  "notes": "Privately owned, based in Ankeny. Licensed by the State of Iowa for pesticides and nuisance wildlife. Customers can call or text.",
+  "tries": [
+    "\"I think there are bats in my attic, can you help?\"",
+    "\"There is a raccoon under my deck.\"",
+    "\"Do you spray for spiders in Johnston?\""
+  ],
+  "color": "#3f7d3a",
+  "created": "2026-11-25"
+}

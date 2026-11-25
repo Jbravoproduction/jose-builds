@@ -1,0 +1,38 @@
+{
+  "slug": "clemen-painting-services",
+  "business": "Clemen Painting Services",
+  "trade": "Painting",
+  "city": "Urbandale, IA",
+  "phone": "(515) 822-6044",
+  "receptionist": "Grace",
+  "hours": "Monday to Friday, 8 AM to 5 PM, and messages after hours",
+  "services": [
+    "Interior painting",
+    "Exterior painting",
+    "Deck staining",
+    "Polyaspartic garage floor coatings",
+    "Siding washes",
+    "Repairs",
+    "Color consultation"
+  ],
+  "areas": [
+    "Ankeny",
+    "Waukee",
+    "West Des Moines",
+    "Urbandale",
+    "Johnston",
+    "Clive",
+    "Grimes",
+    "Polk City",
+    "Adel"
+  ],
+  "pricing": "Every job gets a free quote, and the owner confirms the exact price. Free same-day estimates and free color consultation.",
+  "notes": "Owner-operated, licensed and insured. Takes cash, check, Zelle and Venmo.",
+  "tries": [
+    "\"Can you coat my garage floor?\"",
+    "\"How soon can I get an estimate?\"",
+    "\"Can you help me pick paint colors?\""
+  ],
+  "color": "#111827",
+  "created": "2026-11-25"
+}

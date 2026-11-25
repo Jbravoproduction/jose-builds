@@ -1,0 +1,34 @@
+{
+  "slug": "reliable-garage-service",
+  "business": "Reliable Garage Service",
+  "trade": "Garage Doors",
+  "city": "Indianola, IA",
+  "owner": "Eric",
+  "phone": "(515) 904-9542",
+  "receptionist": "Lily",
+  "hours": "Monday to Friday, 8 AM to 5 PM, and messages after hours",
+  "services": [
+    "Garage door repair",
+    "Spring repair",
+    "Opener service",
+    "Sensor repair",
+    "Track repair",
+    "Seals and weatherstripping",
+    "Installation",
+    "Maintenance",
+    "Commercial service"
+  ],
+  "areas": [
+    "Indianola",
+    "nearby areas"
+  ],
+  "pricing": "Every job gets a free quote, and the owner confirms the exact price.",
+  "notes": "Locally owned, founded by Eric Alexander. Satisfaction guaranteed. 5.0 Google rating. Free quotes. Emergency support available.",
+  "tries": [
+    "\"My garage door spring snapped, can you come today?\"",
+    "\"My opener stopped working.\"",
+    "\"Do you install new doors?\""
+  ],
+  "color": "#c2410c",
+  "created": "2026-11-25"
+}

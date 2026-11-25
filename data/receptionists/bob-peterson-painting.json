@@ -1,0 +1,39 @@
+{
+  "slug": "bob-peterson-painting",
+  "business": "Bob Peterson Painting",
+  "trade": "Painting",
+  "city": "Des Moines, IA",
+  "phone": "515-279-0216",
+  "receptionist": "Ava",
+  "hours": "Monday to Friday 7 AM to 6 PM, Saturday 8 AM to noon, closed Sunday",
+  "services": [
+    "Exterior painting",
+    "Interior painting",
+    "Woodwork",
+    "New construction",
+    "Custom builds",
+    "Some commercial painting"
+  ],
+  "areas": [
+    "Des Moines",
+    "West Des Moines",
+    "Pleasant Hill",
+    "Urbandale",
+    "Clive",
+    "Ankeny",
+    "Altoona",
+    "Earlham",
+    "Indianola",
+    "Norwalk",
+    "Waukee"
+  ],
+  "pricing": "Every job gets a free quote, and the owner confirms the exact price.",
+  "notes": "Family-owned and operated since 1964, second generation. Fully insured. Takes Visa, MasterCard, PayPal, Apple Pay, Venmo, check, money order and cash.",
+  "tries": [
+    "\"Can I get a free estimate to paint my house exterior?\"",
+    "\"Do you paint kitchen cabinets and trim?\"",
+    "\"Do you take Venmo?\""
+  ],
+  "color": "#b91c1c",
+  "created": "2026-11-25"
+}

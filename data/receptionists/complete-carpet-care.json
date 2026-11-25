@@ -1,0 +1,30 @@
+{
+  "slug": "complete-carpet-care",
+  "business": "Complete Carpet Care",
+  "trade": "Carpet Cleaning",
+  "city": "Des Moines, IA",
+  "phone": "(515) 277-2005",
+  "receptionist": "Grace",
+  "hours": "Monday to Friday, 8 AM to 5 PM, and messages after hours",
+  "services": [
+    "Carpet cleaning",
+    "Upholstery cleaning",
+    "Rug cleaning",
+    "Carpet repair",
+    "Carpet restretching and reinstallation",
+    "Color and bleach spot repair",
+    "Water damage restoration"
+  ],
+  "areas": [
+    "Greater Des Moines metro and surrounding areas"
+  ],
+  "pricing": "Every job gets a free quote, and the owner confirms the exact price. Upfront pricing.",
+  "notes": "Local family business serving Greater Des Moines for over 30 years. IICRC-certified firm with Master Certified Technicians on staff.",
+  "tries": [
+    "\"How much to clean three bedrooms and a hallway?\"",
+    "\"Can you fix a bleach spot on my carpet?\"",
+    "\"My basement flooded, can you help?\""
+  ],
+  "color": "#2563eb",
+  "created": "2026-11-25"
+}
