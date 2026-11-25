@@ -1,0 +1,29 @@
+{
+  "slug": "the-confidence-lab",
+  "business": "The Confidence Lab",
+  "city": "Powell, OH",
+  "owner": "Anna Castellanos, NP and Ashley Williamson, NP",
+  "receptionist": "Ava",
+  "hours": "Monday to Friday 9 AM to 5 PM, Saturday 10 AM to 3 PM, closed Sunday",
+  "treatments": [
+    "Wrinkle relaxers",
+    "Dermal fillers",
+    "Lip flip",
+    "Microneedling",
+    "Laser skin treatments",
+    "Laser hair removal",
+    "Chemical peels",
+    "Medical weight loss (GLP-1)",
+    "IV hydration",
+    "NAD+ therapy"
+  ],
+  "pricing": "Wrinkle relaxers start at $4.50 per unit, dermal fillers from $249, microneedling from $279, a lip flip from $75, and GLP-1 weight loss from $99 per month. Exact pricing is confirmed at a consultation.",
+  "notes": "Owner-operated by two nurse practitioners. Free consultations for wrinkle relaxers, fillers and laser. VIP Membership with banked credit. CareCredit financing; HSA and FSA accepted. Online booking available.",
+  "tries": [
+    "\"Is the consultation for filler free?\"",
+    "\"Can I come in on Saturday?\"",
+    "\"Do you take CareCredit?\""
+  ],
+  "color": "#b89a8e",
+  "created": "2026-11-25"
+}

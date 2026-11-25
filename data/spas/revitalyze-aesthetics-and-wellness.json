@@ -1,0 +1,29 @@
+{
+  "slug": "revitalyze-aesthetics-and-wellness",
+  "business": "Revitalyze Aesthetics & Wellness",
+  "city": "Noblesville, IN",
+  "owner": "Dr. Peter Klim",
+  "receptionist": "Mia",
+  "hours": "Monday to Friday 9 AM to 5 PM, closed Saturday and Sunday",
+  "treatments": [
+    "Botox and Dysport",
+    "Dermal fillers",
+    "Morpheus8",
+    "CoolPeel CO2 laser",
+    "BBL HEROic and MOXI",
+    "IPL photofacial",
+    "PRP facial",
+    "Laser hair removal",
+    "Hormone replacement therapy",
+    "Medical weight loss and IV therapy"
+  ],
+  "pricing": "Memberships are Glow Reserve $125 per month, Refresh $159 per month and Revitalyze $249 per month. Treatment pricing is confirmed at a consultation.",
+  "notes": "Dr. Klim is the medical director, a double board-certified anesthesiologist and pain physician. Team includes a nurse injector and an esthetician. Cherry financing. Members get priority booking.",
+  "tries": [
+    "\"Does Morpheus8 hurt?\"",
+    "\"What do I get with the Glow Reserve membership?\"",
+    "\"Can I book on a Saturday?\""
+  ],
+  "color": "#8a7566",
+  "created": "2026-11-25"
+}

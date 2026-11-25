@@ -1,0 +1,29 @@
+{
+  "slug": "central-ohio-aesthetics-clinic",
+  "business": "Central Ohio Aesthetics Clinic",
+  "city": "Powell, OH",
+  "owner": "Jacqueline Smith, FNP-C",
+  "receptionist": "Chloe",
+  "hours": "Monday to Friday 9 AM to 5 PM",
+  "treatments": [
+    "Botox and Dysport",
+    "Dermal fillers",
+    "Sculptra",
+    "PRP",
+    "BBL Hero",
+    "Halo laser",
+    "Moxi laser",
+    "Laser hair removal",
+    "Microneedling",
+    "Medical weight management"
+  ],
+  "pricing": "Members pay $11 to $12 per unit for Botox and $4 to $4.75 per unit for Dysport. Memberships are $105, $155 or $205 per month with a 12-month commitment. Other pricing is confirmed at a consultation.",
+  "notes": "Two board-certified family nurse practitioners. Silver, Gold and Platinum memberships. Monthly specials. Hormone replacement therapy also offered.",
+  "tries": [
+    "\"How much is Botox with a membership?\"",
+    "\"Do you have any appointments Saturday?\"",
+    "\"What's the difference between Halo and Moxi?\""
+  ],
+  "color": "#a8b5a2",
+  "created": "2026-11-25"
+}

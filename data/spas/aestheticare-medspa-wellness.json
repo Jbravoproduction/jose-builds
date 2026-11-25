@@ -1,0 +1,29 @@
+{
+  "slug": "aestheticare-medspa-wellness",
+  "business": "AesthetiCare Medspa + Wellness",
+  "city": "Kansas City, MO",
+  "owner": "Matt Taranto",
+  "receptionist": "Mia",
+  "hours": "Ward Parkway: Monday 9 AM to 5 PM, Tuesday 9 AM to 6 PM, Wednesday to Friday 9 AM to 5 PM, Saturday 9 AM to 3 PM every other week. Liberty, Lenexa and Overland Park have their own hours.",
+  "treatments": [
+    "Botox, Dysport and Daxxify",
+    "Dermal fillers",
+    "Sculptra",
+    "SkinVive",
+    "HydraFacial",
+    "Halo laser",
+    "Moxi laser",
+    "Sofwave",
+    "CoolSculpting Elite",
+    "Emsculpt Neo"
+  ],
+  "pricing": "Pricing depends on each client's goals and is confirmed at a consultation.",
+  "notes": "Locally owned since 2001 with 4 Kansas City locations: Ward Parkway, Liberty, Lenexa and Overland Park. Free virtual and in-person consultations. Holiday promo: 25% off skincare through Cyber Monday, December 1.",
+  "tries": [
+    "\"Is the consultation free?\"",
+    "\"Which location is open Saturday?\"",
+    "\"Is the skincare sale still going?\""
+  ],
+  "color": "#3e5c6b",
+  "created": "2026-11-25"
+}

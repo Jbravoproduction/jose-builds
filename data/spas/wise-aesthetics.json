@@ -1,0 +1,29 @@
+{
+  "slug": "wise-aesthetics",
+  "business": "Wise Aesthetics",
+  "city": "Carmel, IN",
+  "owner": "Cristina Wiseman, NP-C",
+  "receptionist": "Ava",
+  "hours": "Monday 9 AM to 5 PM, Tuesday to Thursday 9 AM to 6 PM, Friday 9 AM to 5 PM, closed Saturday and Sunday",
+  "treatments": [
+    "Botox, Dysport, Xeomin and Daxxify",
+    "Hyaluronic acid fillers",
+    "Sculptra",
+    "Radiesse",
+    "BBL and Moxi",
+    "Halo laser",
+    "CoolPeel",
+    "RF microneedling",
+    "Laser hair removal",
+    "VI Peel and clinical facials"
+  ],
+  "pricing": "Wrinkle relaxer visits run $250 to $800 for 1 to 3 areas. Laser and light treatments start at $350, or $299 for Journey members. A $100 consultation deposit is credited toward treatment.",
+  "notes": "Founded by nurse practitioner Cristina Wiseman, with medical direction by a board-certified plastic surgeon. Consult is complimentary with same-day treatment. Journey and Essentials memberships. Cherry financing. Give $50, Get $50 referral offer.",
+  "tries": [
+    "\"How much would Botox for my forehead cost?\"",
+    "\"Is the $100 deposit refundable toward treatment?\"",
+    "\"Do you have Saturday hours?\""
+  ],
+  "color": "#b8a48e",
+  "created": "2026-11-25"
+}

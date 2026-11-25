@@ -1,0 +1,29 @@
+{
+  "slug": "glo-md-aesthetics-and-wellness",
+  "business": "glo MD Aesthetics & Wellness",
+  "city": "Powell, OH",
+  "owner": "Dr. Mindy Jacques",
+  "receptionist": "Sophia",
+  "hours": "Monday, Wednesday, Thursday and Friday 9 AM to 5 PM; Tuesday 7 AM to 7 PM",
+  "treatments": [
+    "Botox and Dysport",
+    "Injectable fillers",
+    "Hydrafacial",
+    "RF microneedling",
+    "Laser skin rejuvenation",
+    "Laser hair removal",
+    "PRP",
+    "Chemical peels",
+    "Dermaplaning",
+    "IV hydration"
+  ],
+  "pricing": "Botox is $14 per unit with Dr. Jacques or $13 per unit with a nurse injector. A Botox or Dysport lip flip is $75. Other pricing is confirmed at a consultation.",
+  "notes": "Dr. Mindy Jacques is the owner and medical director, with nurse injectors on the team. Glo Getters Membership with savings on Botox and Dysport. Monthly specials. Consults can be self-scheduled online.",
+  "tries": [
+    "\"How much is Botox with Dr. Jacques?\"",
+    "\"Are you open late on Tuesdays?\"",
+    "\"What is the Glo Getters membership?\""
+  ],
+  "color": "#c9a98b",
+  "created": "2026-11-25"
+}

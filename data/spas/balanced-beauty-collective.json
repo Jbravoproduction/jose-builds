@@ -1,0 +1,29 @@
+{
+  "slug": "balanced-beauty-collective",
+  "business": "Balanced Beauty Collective",
+  "city": "Dublin, OH",
+  "owner": "Andi Noonan, RN",
+  "receptionist": "Grace",
+  "hours": "Tuesday to Saturday, 9 AM to 5 PM",
+  "treatments": [
+    "Botox",
+    "Dermal fillers",
+    "Microneedling",
+    "Chemical peels",
+    "Custom facials",
+    "Celluma red light therapy",
+    "Guided weight loss",
+    "Peptide therapy",
+    "Vitamin injections",
+    "Lash lift and tint"
+  ],
+  "pricing": "The membership is $99 per month and includes a monthly wellness credit, a complimentary monthly vitamin injection and 10% off services. Other pricing is confirmed at a consultation.",
+  "notes": "Owner Andi Noonan is an RN with 23+ years of nursing. Team includes a nurse practitioner, a licensed advanced esthetician and a nutritional therapy practitioner. Cherry financing. Evenings and weekends can be accommodated when needed.",
+  "tries": [
+    "\"What's included in the $99 membership?\"",
+    "\"Can I get an evening appointment?\"",
+    "\"Do you offer financing?\""
+  ],
+  "color": "#d8bfb0",
+  "created": "2026-11-25"
+}

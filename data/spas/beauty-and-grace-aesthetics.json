@@ -1,0 +1,28 @@
+{
+  "slug": "beauty-and-grace-aesthetics",
+  "business": "Beauty & Grace Aesthetics",
+  "city": "Noblesville, IN",
+  "owner": "Amy Julian-Resner, FNP-C",
+  "receptionist": "Sophia",
+  "hours": "Monday to Wednesday 10 AM to 5 PM, Thursday 11 AM to 6 PM, Friday 10 AM to 5 PM, closed Saturday and Sunday",
+  "treatments": [
+    "Botox, Dysport, Jeuveau and Daxxify",
+    "Lip, cheek and under-eye filler",
+    "Sculptra",
+    "Radiesse",
+    "HydraFacial",
+    "VI Peel and chemical peels",
+    "Microneedling",
+    "BBL and Moxi laser",
+    "Exosome hair restoration"
+  ],
+  "pricing": "Pricing depends on each client's goals and is confirmed at a consultation.",
+  "notes": "Founded in 2019 by nurse practitioner Amy Julian-Resner. Team includes a nurse injector and an aesthetician. New-patient consultations are 45 minutes. Club B&G Membership. Cherry financing. Online booking available.",
+  "tries": [
+    "\"How long is a first consultation?\"",
+    "\"Do you do under-eye filler?\"",
+    "\"What is Club B&G?\""
+  ],
+  "color": "#c9a99a",
+  "created": "2026-11-25"
+}

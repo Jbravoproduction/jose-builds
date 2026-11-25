@@ -1,0 +1,29 @@
+{
+  "slug": "orchid-aesthetics-and-wellness",
+  "business": "Orchid Aesthetics & Wellness",
+  "city": "Lee's Summit, MO",
+  "owner": "Dr. Aaron Mehrer",
+  "receptionist": "Chloe",
+  "hours": "Tuesday to Saturday, 9 AM to 5 PM",
+  "treatments": [
+    "HydraFacial",
+    "Dermaplane facial",
+    "IPL",
+    "SkinPen microneedling",
+    "Botox, Dysport and Daxxify",
+    "Dermal filler",
+    "Laser hair reduction",
+    "Ablative fractional laser",
+    "Obagi Blue Radiance Peel",
+    "Medical weight loss and IV infusions"
+  ],
+  "pricing": "Memberships include one service a month: Radiance Renewal $125, Brilliant Beauty $250, Vital Glow IV $99 and Platinum Drip IV $129. The seasonal Pumpkin Pie Facial is $150. Other pricing is confirmed at a consultation.",
+  "notes": "Owned by Dr. Aaron Mehrer, a board-certified anesthesiologist and in-house medical director. Team includes a nurse practitioner, an RN and two licensed aestheticians. Members get discounted neurotoxins and filler. Current promos: 20% off IV infusions; laser hair removal buy 4 get 2 free.",
+  "tries": [
+    "\"How much is the Pumpkin Pie Facial?\"",
+    "\"What's the laser hair removal deal?\"",
+    "\"Which membership includes a HydraFacial?\""
+  ],
+  "color": "#8e6c8a",
+  "created": "2026-11-25"
+}

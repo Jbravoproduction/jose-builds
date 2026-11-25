@@ -1,0 +1,29 @@
+{
+  "slug": "advanced-aesthetic-center",
+  "business": "Advanced Aesthetic Center",
+  "city": "Lee's Summit, MO",
+  "owner": "Becky Hughes, RN",
+  "receptionist": "Grace",
+  "hours": "Monday to Thursday 9 AM to 5 PM, Friday 9 AM to 3 PM",
+  "treatments": [
+    "Botox, Xeomin, Dysport and Daxxify",
+    "Dermal fillers",
+    "Biostimulators",
+    "Microtox",
+    "Microneedling",
+    "PDGF",
+    "Clinical facials",
+    "VI Peel and lasers",
+    "Laser hair removal",
+    "GLP-1 weight loss"
+  ],
+  "pricing": "Inner Circle Blush membership is $199 per year (save $1 per unit on wrinkle reducers and 10% off facials). Gold is $1,995 per year, credited toward treatments. Teeth whitening is $99 right now (normally $125). Other pricing is confirmed at a consultation.",
+  "notes": "Co-founded by Becky Hughes (RN, 30+ years in nursing) and Robert Lilly. Team of 3 RN injectors, a nurse practitioner, skin specialists and a laser specialist. Payment plans offered. Also runs AAC Academy Botox training.",
+  "tries": [
+    "\"What's in the Inner Circle membership?\"",
+    "\"Are you open on Fridays after 3?\"",
+    "\"Is the teeth whitening special still on?\""
+  ],
+  "color": "#c9a29b",
+  "created": "2026-11-25"
+}
