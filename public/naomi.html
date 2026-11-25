@@ -5,9 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="robots" content="noindex, nofollow">
 <title>To my love Naomi</title>
-<meta name="description" content="For you.">
+<meta name="description" content="Lilies, for you.">
 <meta property="og:title" content="To my love Naomi">
-<meta property="og:description" content="For you.">
+<meta property="og:description" content="Lilies, for you.">
 <meta name="theme-color" content="#000000">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -41,13 +41,11 @@
 </head>
 <body>
 <canvas id="c"></canvas>
-<div class="note" id="note"><h1>To my love Naomi</h1></div>
 <div class="hint" id="hint">tap to watch them bloom again</div>
 <script>
 (() => {
   const canvas = document.getElementById("c");
   const ctx = canvas.getContext("2d");
-  const note = document.getElementById("note");
   const hint = document.getElementById("hint");
   let W = 0, H = 0, S = 0, DPR = 1, cx = 0, baseY = 0;
 
@@ -69,23 +67,24 @@
   const T = (type, c) => ({ type, ...c });
   // Real flower colors: [base, body, rim] for tulips; lilies use a center → edge ramp.
   const looks = [
-    T("tulip", { base: "#5a1a12", body: "#c3122d", rim: "#ff5a63" }),
     T("lily", { center: "#a3104a", mid: "#ea5f97", edge: "#fff3f7", spot: "rgba(110,0,40,.75)" }),
-    T("tulip", { base: "#6b4a0a", body: "#e3a10b", rim: "#ffe27a" }),
-    T("tulip", { base: "#5e1d33", body: "#e0507f", rim: "#ffc2d3" }),
-    T("lily", { center: "#d9e8b8", mid: "#fbfdf4", edge: "#ffffff", spot: "rgba(150,120,60,.35)" }),
-    T("tulip", { base: "#2c0f3d", body: "#6e2a92", rim: "#c08ae0" }),
+    T("lily", { center: "#d9e8b8", mid: "#fbfdf4", edge: "#ffffff", spot: "rgba(150,120,60,.3)" }),
     T("lily", { center: "#e87aa8", mid: "#f8bfd5", edge: "#fff6f9", spot: "rgba(170,20,80,.6)" }),
-    T("tulip", { base: "#4a1608", body: "#e2531c", rim: "#ffae6b" }),
+    T("lily", { center: "#d4521a", mid: "#f58a3c", edge: "#ffc48a", spot: "rgba(70,20,5,.8)" }),
     T("lily", { center: "#b81a5a", mid: "#f27aa8", edge: "#ffffff", spot: "rgba(120,0,45,.75)" }),
-    T("tulip", { base: "#5a3340", body: "#f0b7c6", rim: "#fff4f6" }),
+    T("lily", { center: "#e3c25a", mid: "#fff0b8", edge: "#fffdf0", spot: "rgba(150,90,20,.4)" }),
+    T("lily", { center: "#f0b3c8", mid: "#fde4ee", edge: "#ffffff", spot: "rgba(190,60,110,.45)" }),
+    T("lily", { center: "#8f0d3e", mid: "#d43a77", edge: "#f9b9d0", spot: "rgba(80,0,30,.8)" }),
+    T("lily", { center: "#dfeac8", mid: "#ffffff", edge: "#ffffff", spot: "rgba(150,120,60,.25)" }),
+    T("lily", { center: "#c0336e", mid: "#f59cc0", edge: "#fff8fb", spot: "rgba(130,10,55,.7)" }),
   ];
+
   const flowers = looks.map((l, i) => ({
     ...l,
     phi: (i / looks.length) * Math.PI * 2 + rand() * 0.3,
     r: 0.12 + rand() * 0.2,
     h: 0.5 + rand() * 0.32,
-    size: l.type === "lily" ? 0.09 + rand() * 0.02 : 0.072 + rand() * 0.014,
+    size: 0.092 + rand() * 0.022,
     delay: 0.3 + i * 0.32,
     leafSide: i % 2 ? 1 : -1,
     sway: rand() * Math.PI * 2,
@@ -516,10 +515,9 @@
 
     drawRibbon(clamp((t - 1.2) / 1.5));
 
-    if (!shown && t > lastDone - 1.2) {
+    if (!shown && t > lastDone + 2) {
       shown = true;
-      note.classList.add("show");
-      setTimeout(() => hint.classList.add("show"), 4000);
+      hint.classList.add("show");
     }
     requestAnimationFrame(frame);
   }
@@ -528,7 +526,6 @@
   window.addEventListener("pointerdown", () => {
     start = performance.now();
     shown = false;
-    note.classList.remove("show");
     hint.classList.remove("show");
   });
 })();
