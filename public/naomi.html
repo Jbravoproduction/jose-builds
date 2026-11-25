@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>To my love Naomi</title>
+<meta name="description" content="Tulips and lilies, just for you.">
+<meta property="og:title" content="To my love Naomi">
+<meta property="og:description" content="Tulips and lilies, just for you.">
+<meta name="theme-color" content="#0b0614">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:ital@1&display=swap" rel="stylesheet">
+<style>
+  html, body { margin: 0; height: 100%; overflow: hidden; background: #0b0614; }
+  body { touch-action: manipulation; -webkit-tap-highlight-color: transparent; }
+  canvas { position: fixed; inset: 0; width: 100%; height: 100%; display: block; }
+  .note {
+    position: fixed; left: 0; right: 0; top: max(5vh, env(safe-area-inset-top));
+    text-align: center; pointer-events: none; opacity: 0;
+    transition: opacity 2.4s ease, transform 2.4s ease; transform: translateY(10px);
+  }
+  .note.show { opacity: 1; transform: none; }
+  .note h1 {
+    margin: 0; font-family: "Great Vibes", "Snell Roundhand", cursive; font-weight: 400;
+    font-size: clamp(44px, 9vw, 96px); color: #ffe3ee; letter-spacing: 1px;
+    text-shadow: 0 0 18px rgba(255, 120, 170, .75), 0 0 46px rgba(255, 90, 150, .45);
+  }
+  .note p {
+    margin: 4px 0 0; font-family: "Cormorant Garamond", Georgia, serif; font-style: italic;
+    font-size: clamp(15px, 2.4vw, 20px); color: rgba(255, 214, 229, .75);
+  }
+  .hint {
+    position: fixed; bottom: max(14px, env(safe-area-inset-bottom)); left: 0; right: 0; text-align: center;
+    font-family: "Cormorant Garamond", Georgia, serif; font-style: italic; font-size: 14px;
+    color: rgba(255, 220, 235, .45); opacity: 0; transition: opacity 2s ease; pointer-events: none;
+  }
+  .hint.show { opacity: 1; }
+</style>
+</head>
+<body>
+<canvas id="c"></canvas>
+<div class="note" id="note"><h1>To my love Naomi</h1><p>tulips and lilies, all for you</p></div>
+<div class="hint" id="hint">tap to watch them bloom again</div>
+<script>
+(() => {
+  const canvas = document.getElementById("c");
+  const ctx = canvas.getContext("2d");
+  const note = document.getElementById("note");
+  const hint = document.getElementById("hint");
+  let W = 0, H = 0, S = 0, DPR = 1, cx = 0, baseY = 0;
+
+  function resize() {
+    DPR = Math.min(window.devicePixelRatio || 1, 2);
+    W = window.innerWidth; H = window.innerHeight;
+    canvas.width = W * DPR; canvas.height = H * DPR;
+    ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+    S = Math.min(W * 1.15, H * 0.78);
+    cx = W / 2; baseY = H * 0.9;
+  }
+  window.addEventListener("resize", resize);
+  resize();
+
+  // Small seeded random so every visit looks the same.
+  let seed = 7;
+  const rand = () => ((seed = (seed * 16807) % 2147483647) - 1) / 2147483646;
+
+  const T = (type, c1, c2) => ({ type, c1, c2 });
+  const looks = [
+    T("tulip", "#ff2f6d", "#ff9ab8"),
+    T("lily", "#ff4f9a", "#fff4f8"),
+    T("tulip", "#ffb13b", "#ffe9a8"),
+    T("tulip", "#ff6fa5", "#ffd2e2"),
+    T("lily", "#ffffff", "#ffffff"),
+    T("tulip", "#c64bff", "#efc6ff"),
+    T("lily", "#ff7cb0", "#ffe6f0"),
+    T("tulip", "#ff3b3b", "#ffb0a0"),
+    T("lily", "#ff5c8d", "#fff2f6"),
+    T("tulip", "#ff8fc0", "#fff0f6"),
+  ];
+  const flowers = looks.map((l, i) => ({
+    ...l,
+    phi: (i / looks.length) * Math.PI * 2 + rand() * 0.3,
+    r: 0.12 + rand() * 0.2,
+    h: 0.5 + rand() * 0.32,
+    size: l.type === "lily" ? 0.085 + rand() * 0.02 : 0.07 + rand() * 0.015,
+    delay: 0.3 + i * 0.32,
+    leafSide: i % 2 ? 1 : -1,
+    sway: rand() * Math.PI * 2,
+    dots: Array.from({ length: 6 }, () => Array.from({ length: 5 }, () => [0.25 + rand() * 0.5, (rand() - 0.5) * 0.5])),
+  }));
+
+  const sparks = Array.from({ length: 70 }, () => ({ x: rand(), y: rand(), r: 0.4 + rand() * 1.4, p: rand() * 6.28, s: 0.4 + rand() }));
+  const petals = Array.from({ length: 22 }, () => ({
+    x: rand(), y: rand(), s: 4 + rand() * 6, rot: rand() * 6.28, vr: (rand() - 0.5) * 0.02,
+    vy: 0.00025 + rand() * 0.0004, vx: (rand() - 0.5) * 0.0003, c: rand() < 0.5 ? "255,140,180" : "255,200,220",
+  }));
+
+  const clamp = (v) => Math.max(0, Math.min(1, v));
+  const ease = (t) => 1 - Math.pow(1 - clamp(t), 3);
+  const GROW = 2.6, BLOOM = 2.4;
+  let start = performance.now();
+  let shown = false;
+
+  function quad(p0, p1, p2, t) {
+    const u = 1 - t;
+    return [u * u * p0[0] + 2 * u * t * p1[0] + t * t * p2[0], u * u * p0[1] + 2 * u * t * p1[1] + t * t * p2[1]];
+  }
+
+  function drawStem(f, head, k, grow, dim) {
+    const p0 = [cx + (f.r * 40 - 4) * k * 0.3, baseY + S * 0.1];
+    const p1 = [cx + (head[0] - cx) * 0.25, baseY - S * f.h * 0.45];
+    const p2 = head;
+    ctx.save();
+    ctx.lineCap = "round";
+    ctx.strokeStyle = `rgba(${Math.round(70 * dim)},${Math.round(170 * dim)},${Math.round(95 * dim)},1)`;
+    ctx.shadowColor = "rgba(90,255,150,.35)";
+    ctx.shadowBlur = 8;
+    ctx.lineWidth = Math.max(2, S * 0.0075 * k);
+    ctx.beginPath();
+    const N = 40, end = Math.max(1, Math.round(N * grow));
+    for (let i = 0; i <= end; i++) {
+      const pt = quad(p0, p1, p2, i / N);
+      i ? ctx.lineTo(pt[0], pt[1]) : ctx.moveTo(pt[0], pt[1]);
+    }
+    ctx.stroke();
+    ctx.restore();
+
+    // A leaf that unfurls as the stem grows.
+    const lt = 0.32, lg = ease((grow - lt) / 0.4);
+    if (lg > 0) {
+      const at = quad(p0, p1, p2, lt), nx = quad(p0, p1, p2, lt + 0.02);
+      const ang = Math.atan2(nx[1] - at[1], nx[0] - at[0]);
+      const L = S * 0.11 * k * lg;
+      ctx.save();
+      ctx.translate(at[0], at[1]);
+      ctx.rotate(ang + f.leafSide * 0.9);
+      const g = ctx.createLinearGradient(0, 0, L, 0);
+      g.addColorStop(0, `rgba(${Math.round(40 * dim)},${Math.round(120 * dim)},${Math.round(70 * dim)},1)`);
+      g.addColorStop(1, `rgba(${Math.round(120 * dim)},${Math.round(220 * dim)},${Math.round(140 * dim)},1)`);
+      ctx.fillStyle = g;
+      ctx.shadowColor = "rgba(90,255,150,.3)";
+      ctx.shadowBlur = 10;
+      ctx.beginPath();
+      ctx.moveTo(0, 0);
+      ctx.quadraticCurveTo(L * 0.5, -L * 0.32 * f.leafSide, L, 0);
+      ctx.quadraticCurveTo(L * 0.5, L * 0.18 * f.leafSide, 0, 0);
+      ctx.fill();
+      ctx.restore();
+    }
+    return grow >= 1;
+  }
+
+  function petalPath(w, h) {
+    ctx.beginPath();
+    ctx.moveTo(0, 0);
+    ctx.bezierCurveTo(-0.62 * w, -0.08 * h, -0.62 * w, -0.78 * h, -0.04 * w, -h);
+    ctx.quadraticCurveTo(0, -1.04 * h, 0.04 * w, -h);
+    ctx.bezierCurveTo(0.62 * w, -0.78 * h, 0.62 * w, -0.08 * h, 0, 0);
+  }
+
+  function drawTulip(f, x, y, s, b, dim) {
+    const h = s * 1.45, w = s * 1.15;
+    ctx.save();
+    ctx.translate(x, y + s * 0.35);
+    ctx.globalAlpha = dim;
+    ctx.shadowColor = f.c1;
+    ctx.shadowBlur = 18 + 22 * b;
+    const grad = () => {
+      const g = ctx.createLinearGradient(0, 0, 0, -h);
+      g.addColorStop(0, f.c1);
+      g.addColorStop(1, f.c2);
+      return g;
+    };
+    const open = 0.08 + 0.42 * b;
+    const parts = [
+      [0, 1.0, 0.82],        // back petal
+      [-open, 0.82, 1],      // left
+      [open, 0.82, 1],       // right
+      [0, 0.62 + 0.1 * b, 1.04], // front
+    ];
+    for (const [rot, ws, light] of parts) {
+      ctx.save();
+      ctx.rotate(rot);
+      petalPath(w * ws, h);
+      ctx.fillStyle = grad();
+      ctx.filter = light < 1 ? "brightness(0.82)" : "none";
+      ctx.fill();
+      ctx.filter = "none";
+      ctx.strokeStyle = "rgba(255,255,255,.18)";
+      ctx.lineWidth = 1;
+      ctx.stroke();
+      ctx.restore();
+    }
+    ctx.restore();
+  }
+
+  function drawLily(f, x, y, s, b, dim) {
+    ctx.save();
+    ctx.translate(x, y);
+    ctx.globalAlpha = dim;
+    if (b < 0.25) {
+      // Closed bud, slowly swelling.
+      const q = 0.6 + b * 1.6;
+      ctx.shadowColor = f.c1;
+      ctx.shadowBlur = 14;
+      const g = ctx.createLinearGradient(0, s * 0.3, 0, -s * 1.3);
+      g.addColorStop(0, "#7fd38f");
+      g.addColorStop(1, f.c2);
+      ctx.fillStyle = g;
+      ctx.beginPath();
+      ctx.ellipse(0, -s * 0.45 * q, s * 0.22 * q, s * 0.7 * q, 0, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.restore();
+      return;
+    }
+    const o = (b - 0.25) / 0.75;
+    const L = s * (0.7 + 0.75 * o), w = s * 0.34;
+    ctx.scale(1, 0.84);
+    ctx.shadowColor = f.c1 === "#ffffff" ? "rgba(255,240,250,.9)" : f.c1;
+    ctx.shadowBlur = 20 + 18 * o;
+    for (let i = 0; i < 6; i++) {
+      const spread = 0.35 + 0.65 * o;
+      const a = (i / 6) * Math.PI * 2 * spread - Math.PI * spread + Math.PI / 6 * (1 - spread);
+      ctx.save();
+      ctx.rotate(a + (i % 2 ? 0.08 : 0));
+      const g = ctx.createLinearGradient(0, 0, 0, -L);
+      g.addColorStop(0, f.c1);
+      g.addColorStop(0.55, f.c1 === "#ffffff" ? "#fff7fb" : f.c1);
+      g.addColorStop(1, f.c2);
+      ctx.fillStyle = g;
+      ctx.beginPath();
+      ctx.moveTo(0, 0);
+      ctx.quadraticCurveTo(w * 1.15, -L * 0.45, 0, -L);
+      ctx.quadraticCurveTo(-w * 1.15, -L * 0.45, 0, 0);
+      ctx.fill();
+      ctx.shadowBlur = 0;
+      ctx.strokeStyle = "rgba(255,255,255,.35)";
+      ctx.lineWidth = 0.8;
+      ctx.beginPath();
+      ctx.moveTo(0, -L * 0.1);
+      ctx.lineTo(0, -L * 0.85);
+      ctx.stroke();
+      // Speckles, like a stargazer lily.
+      ctx.fillStyle = f.c1 === "#ffffff" ? "rgba(255,150,190,.55)" : "rgba(150,0,60,.45)";
+      for (const [t, dx] of f.dots[i]) {
+        ctx.beginPath();
+        ctx.arc(dx * w, -L * t, Math.max(0.7, s * 0.018), 0, Math.PI * 2);
+        ctx.fill();
+      }
+      ctx.restore();
+    }
+    // Stamens.
+    if (o > 0.45) {
+      const sg = (o - 0.45) / 0.55;
+      ctx.shadowBlur = 8;
+      ctx.shadowColor = "rgba(255,200,120,.8)";
+      for (let i = 0; i < 6; i++) {
+        const a = (i / 6) * Math.PI * 2 + 0.3;
+        const len = s * 0.55 * sg;
+        const ex = Math.sin(a) * len, ey = -Math.cos(a) * len * 0.9 - s * 0.15;
+        ctx.strokeStyle = "rgba(220,255,210,.85)";
+        ctx.lineWidth = 1;
+        ctx.beginPath();
+        ctx.moveTo(0, 0);
+        ctx.quadraticCurveTo(ex * 0.4, ey * 0.7, ex, ey);
+        ctx.stroke();
+        ctx.fillStyle = "#d9772b";
+        ctx.beginPath();
+        ctx.ellipse(ex, ey, s * 0.05, s * 0.022, a, 0, Math.PI * 2);
+        ctx.fill();
+      }
+    }
+    ctx.restore();
+  }
+
+  function drawRibbon(alpha) {
+    if (alpha <= 0) return;
+    ctx.save();
+    ctx.globalAlpha = alpha;
+    ctx.translate(cx, baseY + S * 0.015);
+    ctx.shadowColor = "rgba(255,120,170,.8)";
+    ctx.shadowBlur = 16;
+    const g = ctx.createLinearGradient(-S * 0.08, 0, S * 0.08, 0);
+    g.addColorStop(0, "#ff5a92");
+    g.addColorStop(0.5, "#ffc2d6");
+    g.addColorStop(1, "#ff5a92");
+    ctx.fillStyle = g;
+    const r = S * 0.045;
+    ctx.beginPath();
+    ctx.moveTo(0, 0);
+    ctx.bezierCurveTo(-r * 1.6, -r * 1.1, -r * 1.9, r * 0.9, 0, 0);
+    ctx.bezierCurveTo(r * 1.9, r * 0.9, r * 1.6, -r * 1.1, 0, 0);
+    ctx.fill();
+    ctx.beginPath();
+    ctx.moveTo(-r * 0.15, 0);
+    ctx.lineTo(-r * 0.9, r * 2.2);
+    ctx.lineTo(-r * 0.45, r * 2.0);
+    ctx.lineTo(0, r * 0.2);
+    ctx.lineTo(r * 0.45, r * 2.0);
+    ctx.lineTo(r * 0.9, r * 2.2);
+    ctx.lineTo(r * 0.15, 0);
+    ctx.closePath();
+    ctx.fill();
+    ctx.beginPath();
+    ctx.arc(0, 0, r * 0.32, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.restore();
+  }
+
+  function background(t) {
+    const g = ctx.createRadialGradient(cx, H * 0.62, 10, cx, H * 0.62, Math.max(W, H) * 0.85);
+    g.addColorStop(0, "#2a0f2e");
+    g.addColorStop(0.5, "#150a22");
+    g.addColorStop(1, "#07040d");
+    ctx.fillStyle = g;
+    ctx.fillRect(0, 0, W, H);
+    for (const p of sparks) {
+      const a = 0.25 + 0.55 * (0.5 + 0.5 * Math.sin(t * p.s + p.p));
+      ctx.fillStyle = `rgba(255,225,240,${a})`;
+      ctx.beginPath();
+      ctx.arc(p.x * W, p.y * H * 0.85, p.r, 0, Math.PI * 2);
+      ctx.fill();
+    }
+  }
+
+  function fallingPetals(t, alpha) {
+    if (alpha <= 0) return;
+    for (const p of petals) {
+      p.y += p.vy; p.x += p.vx + Math.sin(t * 0.6 + p.rot) * 0.0002; p.rot += p.vr;
+      if (p.y > 1.05) { p.y = -0.05; p.x = Math.random(); }
+      ctx.save();
+      ctx.translate(p.x * W, p.y * H);
+      ctx.rotate(p.rot);
+      ctx.fillStyle = `rgba(${p.c},${0.55 * alpha})`;
+      ctx.beginPath();
+      ctx.ellipse(0, 0, p.s, p.s * 0.55, 0, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.restore();
+    }
+  }
+
+  function frame(now) {
+    const t = (now - start) / 1000;
+    background(now / 1000);
+
+    // The bouquet turns slowly through 180 degrees and back.
+    const theta = (Math.PI / 2) * Math.sin((now / 1000) * (Math.PI * 2 / 18));
+
+    const lastDone = flowers[flowers.length - 1].delay + GROW + BLOOM;
+    fallingPetals(now / 1000, clamp((t - lastDone + 1.5) / 3));
+
+    const placed = flowers.map((f) => {
+      const a = f.phi + theta;
+      const depth = Math.cos(a);
+      const k = 0.82 + 0.18 * (depth + 1) / 2;
+      const sw = Math.sin(now / 1000 * 0.9 + f.sway) * S * 0.006;
+      const head = [cx + Math.sin(a) * f.r * S + sw, baseY - f.h * S * k];
+      return { f, depth, k, head };
+    }).sort((p, q) => p.depth - q.depth);
+
+    for (const { f, depth, k, head } of placed) {
+      const local = t - f.delay;
+      const grow = ease(local / GROW);
+      if (grow <= 0) continue;
+      const dim = 0.62 + 0.38 * (depth + 1) / 2;
+      const tip = quad(
+        [cx, baseY + S * 0.1],
+        [cx + (head[0] - cx) * 0.25, baseY - S * f.h * 0.45],
+        head,
+        grow,
+      );
+      drawStem(f, head, k, grow, dim);
+      const b = ease((local - GROW * 0.85) / BLOOM);
+      const s = f.size * S * k * (0.35 + 0.65 * Math.max(grow, b));
+      const pos = grow < 1 ? tip : head;
+      if (f.type === "tulip") drawTulip(f, pos[0], pos[1], s, b, dim);
+      else drawLily(f, pos[0], pos[1], s, b, dim);
+    }
+
+    drawRibbon(clamp((t - 1.2) / 1.5));
+
+    if (!shown && t > lastDone - 1.2) {
+      shown = true;
+      note.classList.add("show");
+      setTimeout(() => hint.classList.add("show"), 4000);
+    }
+    requestAnimationFrame(frame);
+  }
+  requestAnimationFrame(frame);
+
+  window.addEventListener("pointerdown", () => {
+    start = performance.now();
+    shown = false;
+    note.classList.remove("show");
+    hint.classList.remove("show");
+  });
+})();
+</script>
+</body>
+</html>
