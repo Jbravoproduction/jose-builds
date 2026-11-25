@@ -9,523 +9,283 @@
 <meta property="og:title" content="To my love Naomi">
 <meta property="og:description" content="Lilies, for you.">
 <meta name="theme-color" content="#000000">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:ital@1&display=swap" rel="stylesheet">
 <style>
   html, body { margin: 0; height: 100%; overflow: hidden; background: #000; }
   body { touch-action: manipulation; -webkit-tap-highlight-color: transparent; }
   canvas { position: fixed; inset: 0; width: 100%; height: 100%; display: block; }
-  .note {
-    position: fixed; left: 0; right: 0; top: max(5vh, env(safe-area-inset-top));
-    text-align: center; pointer-events: none; opacity: 0;
-    transition: opacity 2.4s ease, transform 2.4s ease; transform: translateY(10px);
-  }
-  .note.show { opacity: 1; transform: none; }
-  .note h1 {
-    margin: 0; font-family: "Great Vibes", "Snell Roundhand", cursive; font-weight: 400;
-    font-size: clamp(44px, 9vw, 96px); color: #ffe3ee; letter-spacing: 1px;
-    text-shadow: 0 0 18px rgba(255, 120, 170, .75), 0 0 46px rgba(255, 90, 150, .45);
-  }
-  .note p {
-    margin: 4px 0 0; font-family: "Cormorant Garamond", Georgia, serif; font-style: italic;
-    font-size: clamp(15px, 2.4vw, 20px); color: rgba(255, 214, 229, .75);
-  }
   .hint {
     position: fixed; bottom: max(14px, env(safe-area-inset-bottom)); left: 0; right: 0; text-align: center;
-    font-family: "Cormorant Garamond", Georgia, serif; font-style: italic; font-size: 14px;
-    color: rgba(255, 220, 235, .45); opacity: 0; transition: opacity 2s ease; pointer-events: none;
+    font-family: Georgia, serif; font-style: italic; font-size: 13px;
+    color: rgba(255, 220, 235, .4); opacity: 0; transition: opacity 2s ease; pointer-events: none;
   }
   .hint.show { opacity: 1; }
 </style>
 </head>
 <body>
 <canvas id="c"></canvas>
-<div class="hint" id="hint">tap to watch them bloom again</div>
+<div class="hint" id="hint">tap to watch it again</div>
 <script>
 (() => {
   const canvas = document.getElementById("c");
   const ctx = canvas.getContext("2d");
   const hint = document.getElementById("hint");
-  let W = 0, H = 0, S = 0, DPR = 1, cx = 0, baseY = 0;
 
+  let W, H, DPR, unit, cx, groundY;
   function resize() {
     DPR = Math.min(window.devicePixelRatio || 1, 2);
     W = window.innerWidth; H = window.innerHeight;
-    canvas.width = W * DPR; canvas.height = H * DPR;
+    canvas.width = Math.round(W * DPR); canvas.height = Math.round(H * DPR);
     ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
-    S = Math.min(W * 1.15, H * 0.78);
-    cx = W / 2; baseY = H * 0.9;
+    unit = Math.min((H * 0.84) / 3.5, (W * 0.94) / 2.25);
+    cx = W / 2;
+    groundY = H * 0.5 + unit * 1.62;
   }
   window.addEventListener("resize", resize);
   resize();
 
-  // Small seeded random so every visit looks the same.
-  let seed = 7;
-  const rand = () => ((seed = (seed * 16807) % 2147483647) - 1) / 2147483646;
-
-  const T = (type, c) => ({ type, ...c });
-  // Real flower colors: [base, body, rim] for tulips; lilies use a center → edge ramp.
-  const looks = [
-    T("lily", { center: "#a3104a", mid: "#ea5f97", edge: "#fff3f7", spot: "rgba(110,0,40,.75)" }),
-    T("lily", { center: "#d9e8b8", mid: "#fbfdf4", edge: "#ffffff", spot: "rgba(150,120,60,.3)" }),
-    T("lily", { center: "#e87aa8", mid: "#f8bfd5", edge: "#fff6f9", spot: "rgba(170,20,80,.6)" }),
-    T("lily", { center: "#d4521a", mid: "#f58a3c", edge: "#ffc48a", spot: "rgba(70,20,5,.8)" }),
-    T("lily", { center: "#b81a5a", mid: "#f27aa8", edge: "#ffffff", spot: "rgba(120,0,45,.75)" }),
-    T("lily", { center: "#e3c25a", mid: "#fff0b8", edge: "#fffdf0", spot: "rgba(150,90,20,.4)" }),
-    T("lily", { center: "#f0b3c8", mid: "#fde4ee", edge: "#ffffff", spot: "rgba(190,60,110,.45)" }),
-    T("lily", { center: "#8f0d3e", mid: "#d43a77", edge: "#f9b9d0", spot: "rgba(80,0,30,.8)" }),
-    T("lily", { center: "#dfeac8", mid: "#ffffff", edge: "#ffffff", spot: "rgba(150,120,60,.25)" }),
-    T("lily", { center: "#c0336e", mid: "#f59cc0", edge: "#fff8fb", spot: "rgba(130,10,55,.7)" }),
-  ];
-
-  const flowers = looks.map((l, i) => ({
-    ...l,
-    phi: (i / looks.length) * Math.PI * 2 + rand() * 0.3,
-    r: 0.12 + rand() * 0.2,
-    h: 0.5 + rand() * 0.32,
-    size: 0.092 + rand() * 0.022,
-    delay: 0.3 + i * 0.32,
-    leafSide: i % 2 ? 1 : -1,
-    sway: rand() * Math.PI * 2,
-    tilt: (rand() - 0.5) * 0.35,
-    spots: Array.from({ length: 6 }, () => Array.from({ length: 9 }, () => [0.12 + rand() * 0.4, (rand() - 0.5) * 0.55, 0.5 + rand()])),
-    veins: Array.from({ length: 9 }, () => (rand() - 0.5) * 0.9),
-  }));
-
-  const petals = Array.from({ length: 18 }, () => ({
-    x: rand(), y: rand(), s: 4 + rand() * 6, rot: rand() * 6.28, vr: (rand() - 0.5) * 0.02,
-    vy: 0.00025 + rand() * 0.0004, vx: (rand() - 0.5) * 0.0003, c: rand() < 0.5 ? "200,30,70" : "240,150,180",
-  }));
-
-  // A small grain texture, laid over every petal so it reads as a real surface.
-  const grain = document.createElement("canvas");
-  grain.width = grain.height = 96;
-  {
-    const g = grain.getContext("2d");
-    const img = g.createImageData(96, 96);
-    for (let i = 0; i < img.data.length; i += 4) {
-      const v = 100 + Math.random() * 155;
-      img.data[i] = img.data[i + 1] = img.data[i + 2] = v;
-      img.data[i + 3] = 255;
-    }
-    g.putImageData(img, 0, 0);
-  }
-  const grainPat = ctx.createPattern(grain, "repeat");
-  function texture(alpha) {
-    ctx.save();
-    ctx.globalAlpha = alpha;
-    ctx.globalCompositeOperation = "overlay";
-    ctx.fillStyle = grainPat;
-    ctx.fill();
-    ctx.restore();
-  }
-
+  let seed = 11;
+  const rnd = () => ((seed = (seed * 16807) % 2147483647) - 1) / 2147483646;
+  const hex = (h) => [parseInt(h.slice(1, 3), 16), parseInt(h.slice(3, 5), 16), parseInt(h.slice(5, 7), 16)];
+  const mix = (a, b, t) => [a[0] + (b[0] - a[0]) * t, a[1] + (b[1] - a[1]) * t, a[2] + (b[2] - a[2]) * t];
   const clamp = (v) => Math.max(0, Math.min(1, v));
   const ease = (t) => 1 - Math.pow(1 - clamp(t), 3);
-  const GROW = 2.6, BLOOM = 2.6;
+  const norm = (v) => { const l = Math.hypot(v[0], v[1], v[2]) || 1; return [v[0] / l, v[1] / l, v[2] / l]; };
+  const cross = (a, b) => [a[1] * b[2] - a[2] * b[1], a[2] * b[0] - a[0] * b[2], a[0] * b[1] - a[1] * b[0]];
+  const rgb = (c) => `rgb(${c[0] | 0},${c[1] | 0},${c[2] | 0})`;
+
+  // ---------- The scene, as points in 3D (y is up) ----------
+  const fixed = []; // {x,y,z,col,size,ry,layer}
+  const add = (x, y, z, col, size, ry, layer) => fixed.push({ x, y, z, col: rgb(col), size, ry: ry ?? y, layer });
+
+  // Pedestal: two glassy rings and a faint disc.
+  for (let i = 0; i < 520; i++) {
+    const a = (i / 520) * Math.PI * 2;
+    add(Math.cos(a) * 0.74, 0, Math.sin(a) * 0.74, [215, 225, 230], 1.3, 0, 0);
+    add(Math.cos(a) * 0.66, 0.08, Math.sin(a) * 0.66, [235, 240, 245], 1.3, 0.02, 0);
+    add(Math.cos(a) * 0.5, 0.1, Math.sin(a) * 0.5, [200, 215, 225], 1.1, 0.04, 0);
+  }
+  for (let i = 0; i < 260; i++) {
+    const a = rnd() * Math.PI * 2, r = Math.sqrt(rnd()) * 0.64;
+    add(Math.cos(a) * r, 0.085, Math.sin(a) * r, [150, 165, 175], 1, 0.03, 0);
+  }
+
+  // The cone of wrapping paper, ruffled at the top, with a pink ribbon.
+  const coneBot = 0.14, coneTop = 1.38;
+  const coneR = (y) => 0.09 + ((y - coneBot) / (coneTop - coneBot)) * 0.5;
+  for (let i = 0; i < 2800; i++) {
+    const a = rnd() * Math.PI * 2;
+    const top = coneTop + Math.sin(a * 5) * 0.05;
+    const y = coneBot + Math.pow(rnd(), 0.8) * (top - coneBot);
+    const r = coneR(Math.min(y, coneTop));
+    const tone = 0.82 + rnd() * 0.25;
+    let col = [236 * tone, 214 * tone, 182 * tone];
+    if (rnd() < 0.06) col = [255, 238, 228];
+    add(Math.cos(a) * r, y, Math.sin(a) * r, col, 1.6, y, 1);
+  }
+  for (let i = 0; i < 380; i++) {
+    const a = rnd() * Math.PI * 2, y = 0.5 + rnd() * 0.07;
+    add(Math.cos(a) * (coneR(y) + 0.008), y, Math.sin(a) * (coneR(y) + 0.008), mix([232, 88, 140], [255, 170, 200], rnd()), 1.8, y, 1);
+  }
+  for (let i = 0; i < 90; i++) {
+    // Bow hanging off the front.
+    const t = rnd(), side = rnd() < 0.5 ? -1 : 1;
+    const x = side * (0.05 + t * 0.12), y = 0.53 - t * 0.22 + Math.sin(t * 6) * 0.02;
+    add(x, y, coneR(0.53) + 0.02, mix([232, 88, 140], [255, 190, 210], rnd()), 1.8, y, 1);
+  }
+
+  // ---------- Lilies ----------
+  const palettes = [
+    ["#a3104a", "#ea5f97", "#fff3f7", [120, 0, 45]],
+    ["#d9e8b8", "#fbfdf4", "#ffffff", [190, 150, 90]],
+    ["#e87aa8", "#f8bfd5", "#fff6f9", [170, 20, 80]],
+    ["#d4521a", "#f58a3c", "#ffc48a", [70, 20, 5]],
+    ["#b81a5a", "#f27aa8", "#ffffff", [120, 0, 45]],
+    ["#e3c25a", "#fff0b8", "#fffdf0", [150, 90, 20]],
+    ["#f0b3c8", "#fde4ee", "#ffffff", [190, 60, 110]],
+    ["#8f0d3e", "#d43a77", "#f9b9d0", [80, 0, 30]],
+    ["#c0336e", "#f59cc0", "#fff8fb", [130, 10, 55]],
+  ];
+  const lilies = palettes.map((p, i) => {
+    const a = (i / palettes.length) * Math.PI * 2 + rnd() * 0.4;
+    const r = i === 0 ? 0.04 : 0.2 + rnd() * 0.4;
+    const y = 2.05 + rnd() * 0.75 - r * 0.6;
+    const C = [Math.cos(a) * r, y, Math.sin(a) * r];
+    const A = norm([C[0] * 1.6, 1, C[2] * 1.6]);
+    const ref = Math.abs(A[1]) > 0.9 ? [1, 0, 0] : [0, 1, 0];
+    const P1 = norm(cross(A, ref)), P2 = cross(A, P1);
+    const L = 0.3 + rnd() * 0.08;
+    const cols = [hex(p[0]), hex(p[1]), hex(p[2])];
+    const petals = [];
+    for (let k = 0; k < 6; k++) {
+      const pts = [];
+      const n = 140;
+      for (let j = 0; j < n; j++) {
+        const u = Math.pow(rnd(), 0.85), v = rnd() * 2 - 1;
+        let col = u < 0.5 ? mix(cols[0], cols[1], u / 0.5) : mix(cols[1], cols[2], (u - 0.5) / 0.5);
+        if (u > 0.1 && u < 0.5 && rnd() < 0.12) col = p[3];
+        if (Math.abs(v) < 0.12 && u < 0.45) col = mix(col, [215, 235, 150], 0.6); // nectar groove
+        pts.push({ u, v, col: rgb(col) });
+      }
+      petals.push({ ang: (k / 6) * Math.PI * 2 + rnd() * 0.15, inner: k % 2 === 1, pts });
+    }
+    // Stem from inside the cone up to the flower.
+    const B = [Math.cos(a) * 0.04, 0.45, Math.sin(a) * 0.04];
+    const M = [C[0] * 0.35, (B[1] + C[1]) * 0.5, C[2] * 0.35];
+    for (let j = 0; j <= 80; j++) {
+      const t = j / 80, u = 1 - t;
+      const x = u * u * B[0] + 2 * u * t * M[0] + t * t * (C[0] - A[0] * 0.03);
+      const yy = u * u * B[1] + 2 * u * t * M[1] + t * t * (C[1] - A[1] * 0.03);
+      const z = u * u * B[2] + 2 * u * t * M[2] + t * t * (C[2] - A[2] * 0.03);
+      add(x, yy, z, mix([45, 110, 50], [110, 190, 95], rnd()), 1.9, yy, 2);
+      // A long lily leaf off each stem.
+      if (j === 46 || j === 30) {
+        const side = j === 46 ? 1 : -1;
+        const dir = norm([Math.cos(a + side * 1.2), 0.7, Math.sin(a + side * 1.2)]);
+        for (let q = 0; q < 45; q++) {
+          const s = rnd(), w = Math.sin(Math.PI * s) * 0.035 * (rnd() * 2 - 1);
+          add(x + dir[0] * s * 0.32 + w, yy + dir[1] * s * 0.32 - s * s * 0.08, z + dir[2] * s * 0.32 + w,
+            mix([50, 120, 55], [125, 200, 110], rnd()), 1.7, yy, 2);
+        }
+      }
+    }
+    return { C, A, P1, P2, L, petals, cols };
+  });
+
+  // ---------- Animation ----------
+  const SPEED = 0.42; // how fast the build climbs, in scene units per second
+  const TILT = 0.2;
   let start = performance.now();
-  let shown = false;
+  let hinted = false;
 
-  function quad(p0, p1, p2, t) {
-    const u = 1 - t;
-    return [u * u * p0[0] + 2 * u * t * p1[0] + t * t * p2[0], u * u * p0[1] + 2 * u * t * p1[1] + t * t * p2[1]];
+  function project(x, y, z, cosT, sinT) {
+    const rx = x * cosT + z * sinT;
+    const rz = -x * sinT + z * cosT;
+    const ry = (y - 1.6) * Math.cos(TILT) - rz * Math.sin(TILT) + 1.6;
+    const rz2 = (y - 1.6) * Math.sin(TILT) + rz * Math.cos(TILT);
+    const p = 5 / (5 + rz2);
+    return [cx + rx * unit * p, groundY - ry * unit * p, rz2, p];
   }
 
-  function shade(hex, f) {
-    const n = parseInt(hex.slice(1), 16);
-    const c = [(n >> 16) & 255, (n >> 8) & 255, n & 255].map((v) => Math.round(Math.min(255, v * f)));
-    return `rgb(${c[0]},${c[1]},${c[2]})`;
-  }
-
-  function drawStem(f, head, k, grow, dim) {
-    const p0 = [cx, baseY + S * 0.1];
-    const p1 = [cx + (head[0] - cx) * 0.25, baseY - S * f.h * 0.45];
-    const p2 = head;
-    const N = 40, end = Math.max(1, Math.round(N * grow));
-    const trace = (dx) => {
-      ctx.beginPath();
-      for (let i = 0; i <= end; i++) {
-        const pt = quad(p0, p1, p2, i / N);
-        i ? ctx.lineTo(pt[0] + dx, pt[1]) : ctx.moveTo(pt[0] + dx, pt[1]);
-      }
-    };
-    const wdt = Math.max(2.4, S * 0.0085 * k);
-    ctx.save();
-    ctx.lineCap = "round";
-    ctx.globalAlpha = dim;
-    ctx.strokeStyle = "#2f5a2a";
-    ctx.lineWidth = wdt;
-    trace(0);
-    ctx.stroke();
-    ctx.strokeStyle = "rgba(170,215,140,.55)";
-    ctx.lineWidth = wdt * 0.3;
-    trace(-wdt * 0.22);
-    ctx.stroke();
-    ctx.restore();
-
-    // A broad tulip-style leaf with a midrib, unfurling as the stem grows.
-    const lt = 0.3, lg = ease((grow - lt) / 0.45);
-    if (lg > 0) {
-      const at = quad(p0, p1, p2, lt), nx = quad(p0, p1, p2, lt + 0.02);
-      const ang = Math.atan2(nx[1] - at[1], nx[0] - at[0]);
-      const L = S * 0.16 * k * lg, Wd = L * 0.22 * f.leafSide;
-      ctx.save();
-      ctx.globalAlpha = dim;
-      ctx.translate(at[0], at[1]);
-      ctx.rotate(ang + f.leafSide * 0.55);
-      ctx.beginPath();
-      ctx.moveTo(0, 0);
-      ctx.bezierCurveTo(L * 0.25, -Wd * 1.4, L * 0.75, -Wd * 0.9, L, -Wd * 0.15);
-      ctx.bezierCurveTo(L * 0.7, Wd * 0.35, L * 0.3, Wd * 0.45, 0, 0);
-      const g = ctx.createLinearGradient(0, -Wd, 0, Wd * 0.5);
-      g.addColorStop(0, "#9cc58e");
-      g.addColorStop(0.45, "#5c8f4f");
-      g.addColorStop(1, "#2e5428");
-      ctx.fillStyle = g;
-      ctx.fill();
-      texture(0.18);
-      ctx.strokeStyle = "rgba(210,240,190,.35)";
-      ctx.lineWidth = 0.8;
-      ctx.beginPath();
-      ctx.moveTo(L * 0.04, 0);
-      ctx.quadraticCurveTo(L * 0.5, -Wd * 0.5, L * 0.97, -Wd * 0.17);
-      ctx.stroke();
-      ctx.restore();
-    }
-  }
-
-  function tulipPetal(w, h) {
-    ctx.beginPath();
-    ctx.moveTo(0, 0);
-    ctx.bezierCurveTo(-0.58 * w, -0.04 * h, -0.66 * w, -0.66 * h, -0.34 * w, -0.94 * h);
-    ctx.quadraticCurveTo(-0.08 * w, -1.06 * h, 0, -1.02 * h);
-    ctx.quadraticCurveTo(0.08 * w, -1.06 * h, 0.34 * w, -0.94 * h);
-    ctx.bezierCurveTo(0.66 * w, -0.66 * h, 0.58 * w, -0.04 * h, 0, 0);
-  }
-
-  function paintTulipPetal(f, w, h, light) {
-    tulipPetal(w, h);
-    const g = ctx.createLinearGradient(0, 0, 0, -h);
-    g.addColorStop(0, f.base);
-    g.addColorStop(0.16, shade(f.body, 0.8 * light));
-    g.addColorStop(0.6, shade(f.body, light));
-    g.addColorStop(1, shade(f.rim, light));
-    ctx.fillStyle = g;
-    ctx.fill();
-    // Round it: light from the upper left, shadow on the right.
-    const side = ctx.createLinearGradient(-w * 0.6, 0, w * 0.6, 0);
-    side.addColorStop(0, "rgba(255,255,255,0)");
-    side.addColorStop(0.28, "rgba(255,255,255,.22)");
-    side.addColorStop(0.55, "rgba(255,255,255,0)");
-    side.addColorStop(1, "rgba(0,0,0,.45)");
-    ctx.fillStyle = side;
-    ctx.fill();
-    texture(0.16);
-    // Fine veins.
-    ctx.save();
-    ctx.clip();
-    ctx.strokeStyle = "rgba(60,0,10,.10)";
-    ctx.lineWidth = 0.7;
-    for (const v of f.veins) {
-      ctx.beginPath();
-      ctx.moveTo(0, -h * 0.05);
-      ctx.quadraticCurveTo(v * w * 0.6, -h * 0.5, v * w * 0.75, -h * 1.0);
-      ctx.stroke();
-    }
-    ctx.restore();
-    tulipPetal(w, h);
-    ctx.strokeStyle = "rgba(0,0,0,.25)";
-    ctx.lineWidth = 0.8;
-    ctx.stroke();
-  }
-
-  function drawTulip(f, x, y, s, b, dim) {
-    const h = s * 1.5, w = s * (1.02 + 0.22 * b);
-    const open = 0.06 + 0.4 * b;
-    ctx.save();
-    ctx.translate(x, y + s * 0.4);
-    ctx.rotate(f.tilt * 0.4);
-    ctx.globalAlpha = dim;
-    // Inner petals, peeking out as it opens.
-    for (const sgn of [-1, 1]) {
-      ctx.save();
-      ctx.rotate(sgn * open * 0.45);
-      paintTulipPetal(f, w * 0.78, h * 0.97, 0.62);
-      ctx.restore();
-    }
-    paintTulipPetal(f, w, h, 0.72);
-    for (const sgn of [-1, 1]) {
-      ctx.save();
-      ctx.rotate(sgn * open);
-      paintTulipPetal(f, w * 0.82, h * 0.98, 0.88);
-      ctx.restore();
-    }
-    ctx.save();
-    ctx.translate(0, s * 0.04);
-    paintTulipPetal(f, w * (0.66 + 0.08 * b), h * 0.96, 1.05);
-    ctx.restore();
-    // Green-gold base where the petals meet the stem.
-    const bg = ctx.createRadialGradient(0, 0, 0, 0, 0, s * 0.28);
-    bg.addColorStop(0, "rgba(70,95,40,.9)");
-    bg.addColorStop(1, "rgba(70,95,40,0)");
-    ctx.fillStyle = bg;
-    ctx.beginPath();
-    ctx.arc(0, -s * 0.02, s * 0.28, 0, Math.PI * 2);
-    ctx.fill();
-    ctx.restore();
-  }
-
-  function lilyTepal(w, L, wave) {
-    ctx.beginPath();
-    const N = 26, pts = [];
-    for (let i = 0; i <= N; i++) {
-      const t = i / N;
-      const half = w * Math.sin(Math.PI * Math.pow(t, 0.75)) * (1 - 0.25 * t) + w * wave * Math.sin(t * 28) * t;
-      pts.push([half, -L * t]);
-    }
-    ctx.moveTo(0, 0);
-    for (const [hx, hy] of pts) ctx.lineTo(hx, hy);
-    for (let i = pts.length - 1; i >= 0; i--) ctx.lineTo(-pts[i][0] * 0.96, pts[i][1]);
-    ctx.closePath();
-  }
-
-  function drawLily(f, x, y, s, b, dim) {
-    ctx.save();
-    ctx.translate(x, y);
-    ctx.rotate(f.tilt);
-    ctx.globalAlpha = dim;
-    if (b < 0.22) {
-      // Long closed bud, green turning pale.
-      const q = 0.55 + b * 2;
-      ctx.beginPath();
-      ctx.ellipse(0, -s * 0.55 * q, s * 0.2 * q, s * 0.75 * q, 0, 0, Math.PI * 2);
-      const g = ctx.createLinearGradient(-s * 0.2, 0, s * 0.2, 0);
-      g.addColorStop(0, "#6f9a5a");
-      g.addColorStop(0.4, "#d6e7c2");
-      g.addColorStop(1, "#4d7340");
-      ctx.fillStyle = g;
-      ctx.fill();
-      texture(0.2);
-      ctx.restore();
-      return;
-    }
-    const o = (b - 0.22) / 0.78;
-    const L = s * (0.75 + 0.85 * o);
-    ctx.scale(1, 0.82);
-    const spread = 0.3 + 0.7 * o;
-    // Outer three tepals first, then the broader inner three on top.
-    const order = [0, 2, 4, 1, 3, 5];
-    for (const i of order) {
-      const inner = i % 2 === 1;
-      const a = (i / 6) * Math.PI * 2 * spread - Math.PI * spread + Math.PI / 6 * (1 - spread);
-      const w = s * (inner ? 0.3 : 0.24);
-      ctx.save();
-      ctx.rotate(a);
-      lilyTepal(w, L * (inner ? 1 : 0.97), inner ? 0.05 : 0.02);
-      const g = ctx.createLinearGradient(0, 0, 0, -L);
-      g.addColorStop(0, f.center);
-      g.addColorStop(0.45, f.mid);
-      g.addColorStop(0.8, f.edge);
-      g.addColorStop(1, shade(f.edge.length === 7 ? f.edge : "#ffffff", 0.86));
-      ctx.fillStyle = g;
-      ctx.fill();
-      // The tip curls back: darken it a touch, and shade one side.
-      const side = ctx.createLinearGradient(-w, 0, w, 0);
-      side.addColorStop(0, "rgba(255,255,255,.18)");
-      side.addColorStop(0.5, "rgba(255,255,255,0)");
-      side.addColorStop(1, "rgba(0,0,0,.28)");
-      ctx.fillStyle = side;
-      ctx.fill();
-      texture(0.14);
-      ctx.save();
-      ctx.clip();
-      // Nectar groove down the middle.
-      ctx.strokeStyle = "rgba(220,235,140,.55)";
-      ctx.lineWidth = Math.max(1, s * 0.03);
-      ctx.beginPath();
-      ctx.moveTo(0, -L * 0.04);
-      ctx.lineTo(0, -L * 0.42);
-      ctx.stroke();
-      ctx.strokeStyle = "rgba(255,255,255,.3)";
-      ctx.lineWidth = 0.7;
-      ctx.beginPath();
-      ctx.moveTo(0, -L * 0.42);
-      ctx.lineTo(0, -L * 0.92);
-      ctx.stroke();
-      // Raised spots, each with a tiny highlight.
-      for (const [t, dx, r] of f.spots[i]) {
-        const sx = dx * w * 1.4, sy = -L * t, rr = Math.max(0.8, s * 0.022 * r);
-        ctx.fillStyle = f.spot;
-        ctx.beginPath();
-        ctx.arc(sx, sy, rr, 0, Math.PI * 2);
-        ctx.fill();
-        ctx.fillStyle = "rgba(255,255,255,.35)";
-        ctx.beginPath();
-        ctx.arc(sx - rr * 0.3, sy - rr * 0.3, rr * 0.35, 0, Math.PI * 2);
-        ctx.fill();
-      }
-      const tip = ctx.createLinearGradient(0, -L * 0.75, 0, -L);
-      tip.addColorStop(0, "rgba(0,0,0,0)");
-      tip.addColorStop(1, "rgba(0,0,0,.25)");
-      ctx.fillStyle = tip;
-      ctx.fillRect(-w * 2, -L, w * 4, L * 0.3);
-      ctx.restore();
-      ctx.restore();
-    }
-    // Stamens and the pistil.
-    if (o > 0.4) {
-      const sg = ease((o - 0.4) / 0.6);
-      ctx.lineCap = "round";
-      for (let i = 0; i < 6; i++) {
-        const a = (i / 6) * Math.PI * 2 + 0.25;
-        const len = s * (0.62 + 0.08 * (i % 2)) * sg;
-        const ex = Math.sin(a) * len, ey = -Math.cos(a) * len * 0.85 - s * 0.18 * sg;
-        ctx.strokeStyle = "#d3e6b0";
-        ctx.lineWidth = Math.max(1, s * 0.018);
-        ctx.beginPath();
-        ctx.moveTo(0, 0);
-        ctx.quadraticCurveTo(ex * 0.35, ey * 0.75, ex, ey);
-        ctx.stroke();
-        ctx.save();
-        ctx.translate(ex, ey);
-        ctx.rotate(a + Math.PI / 2);
-        const ag = ctx.createLinearGradient(0, -s * 0.03, 0, s * 0.03);
-        ag.addColorStop(0, "#c2621f");
-        ag.addColorStop(1, "#6b2a0c");
-        ctx.fillStyle = ag;
-        ctx.beginPath();
-        ctx.ellipse(0, 0, s * 0.075, s * 0.028, 0, 0, Math.PI * 2);
-        ctx.fill();
-        ctx.restore();
-      }
-      const plen = s * 0.78 * sg;
-      ctx.strokeStyle = "#b9d39a";
-      ctx.lineWidth = Math.max(1.2, s * 0.024);
-      ctx.beginPath();
-      ctx.moveTo(0, 0);
-      ctx.quadraticCurveTo(s * 0.05, -plen * 0.6, s * 0.08, -plen);
-      ctx.stroke();
-      ctx.fillStyle = "#6e8f3c";
-      for (let j = 0; j < 3; j++) {
-        ctx.beginPath();
-        ctx.arc(s * 0.08 + Math.cos(j * 2.1) * s * 0.02, -plen + Math.sin(j * 2.1) * s * 0.02, s * 0.022, 0, Math.PI * 2);
-        ctx.fill();
-      }
-    }
-    ctx.restore();
-  }
-
-  function drawRibbon(alpha) {
-    if (alpha <= 0) return;
-    ctx.save();
-    ctx.globalAlpha = alpha;
-    ctx.translate(cx, baseY + S * 0.015);
-    const r = S * 0.045;
-    const satin = (x0, x1) => {
-      const g = ctx.createLinearGradient(x0, -r, x1, r);
-      g.addColorStop(0, "#b8325f");
-      g.addColorStop(0.35, "#f6a8c2");
-      g.addColorStop(0.55, "#d9577f");
-      g.addColorStop(1, "#8e2148");
-      return g;
-    };
-    ctx.fillStyle = satin(-r * 1.6, r * 1.6);
-    ctx.beginPath();
-    ctx.moveTo(-r * 0.15, 0);
-    ctx.lineTo(-r * 0.9, r * 2.2);
-    ctx.lineTo(-r * 0.45, r * 2.0);
-    ctx.lineTo(0, r * 0.2);
-    ctx.lineTo(r * 0.45, r * 2.0);
-    ctx.lineTo(r * 0.9, r * 2.2);
-    ctx.lineTo(r * 0.15, 0);
-    ctx.closePath();
-    ctx.fill();
-    ctx.beginPath();
-    ctx.moveTo(0, 0);
-    ctx.bezierCurveTo(-r * 1.6, -r * 1.1, -r * 1.9, r * 0.9, 0, 0);
-    ctx.bezierCurveTo(r * 1.9, r * 0.9, r * 1.6, -r * 1.1, 0, 0);
-    ctx.fill();
-    texture(0.12);
-    ctx.fillStyle = satin(-r * 0.3, r * 0.3);
-    ctx.beginPath();
-    ctx.ellipse(0, 0, r * 0.34, r * 0.28, 0, 0, Math.PI * 2);
-    ctx.fill();
-    ctx.restore();
-  }
-
-  function background() {
-    ctx.fillStyle = "#000";
-    ctx.fillRect(0, 0, W, H);
-  }
-
-  function fallingPetals(t, alpha) {
-    if (alpha <= 0) return;
-    for (const p of petals) {
-      p.y += p.vy; p.x += p.vx + Math.sin(t * 0.6 + p.rot) * 0.0002; p.rot += p.vr;
-      if (p.y > 1.05) { p.y = -0.05; p.x = Math.random(); }
-      ctx.save();
-      ctx.translate(p.x * W, p.y * H);
-      ctx.rotate(p.rot);
-      ctx.fillStyle = `rgba(${p.c},${0.5 * alpha})`;
-      ctx.beginPath();
-      ctx.ellipse(0, 0, p.s, p.s * 0.55, 0, 0, Math.PI * 2);
-      ctx.fill();
-      ctx.restore();
-    }
+  function dot(sx, sy, size, p, alpha, col, depth) {
+    if (alpha <= 0.01) return;
+    ctx.globalAlpha = alpha * (0.6 + 0.4 * clamp(0.5 - depth * 0.6));
+    ctx.fillStyle = col;
+    const s = Math.max(1, size * p * unit / 160);
+    ctx.fillRect(sx - s / 2, sy - s / 2, s, s);
   }
 
   function frame(now) {
     const t = (now - start) / 1000;
-    background();
+    const level = -0.1 + t * SPEED;
+    const theta = (Math.PI / 2) * Math.sin((now / 1000) * (Math.PI * 2 / 20));
+    const cosT = Math.cos(theta), sinT = Math.sin(theta);
 
-    // The bouquet turns slowly through 180 degrees and back.
-    const theta = (Math.PI / 2) * Math.sin((now / 1000) * (Math.PI * 2 / 18));
+    ctx.globalAlpha = 1;
+    ctx.fillStyle = "#000";
+    ctx.fillRect(0, 0, W, H);
 
-    const lastDone = flowers[flowers.length - 1].delay + GROW + BLOOM;
-    fallingPetals(now / 1000, clamp((t - lastDone + 1.5) / 3));
-
-    const placed = flowers.map((f) => {
-      const a = f.phi + theta;
-      const depth = Math.cos(a);
-      const k = 0.82 + 0.18 * (depth + 1) / 2;
-      const sw = Math.sin(now / 1000 * 0.9 + f.sway) * S * 0.006;
-      const head = [cx + Math.sin(a) * f.r * S + sw, baseY - f.h * S * k];
-      return { f, depth, k, head };
-    }).sort((p, q) => p.depth - q.depth);
-
-    for (const { f, depth, k, head } of placed) {
-      const local = t - f.delay;
-      const grow = ease(local / GROW);
-      if (grow <= 0) continue;
-      const dim = 0.62 + 0.38 * (depth + 1) / 2;
-      const tip = quad(
-        [cx, baseY + S * 0.1],
-        [cx + (head[0] - cx) * 0.25, baseY - S * f.h * 0.45],
-        head,
-        grow,
-      );
-      drawStem(f, head, k, grow, dim);
-      const b = ease((local - GROW * 0.85) / BLOOM);
-      const s = f.size * S * k * (0.35 + 0.65 * Math.max(grow, b));
-      const pos = grow < 1 ? tip : head;
-      if (f.type === "tulip") drawTulip(f, pos[0], pos[1], s, b, dim);
-      else drawLily(f, pos[0], pos[1], s, b, dim);
+    // Faint glass dome, drawn once the bouquet is done.
+    const domeA = clamp((level - 3.3) / 0.8);
+    if (domeA > 0) {
+      ctx.lineWidth = 1;
+      for (const [k, a] of [[1, 0.16], [1.05, 0.1], [0.95, 0.07]]) {
+        ctx.globalAlpha = domeA * a;
+        ctx.strokeStyle = "#cfe3ee";
+        ctx.beginPath();
+        ctx.ellipse(cx, groundY - unit * 1.75, unit * 1.05 * k, unit * 1.72 * k, 0, 0, Math.PI * 2);
+        ctx.stroke();
+      }
     }
 
-    drawRibbon(clamp((t - 1.2) / 1.5));
-
-    if (!shown && t > lastDone + 2) {
-      shown = true;
-      hint.classList.add("show");
+    // Pedestal, back half of the cone, stems and leaves, front half of the cone.
+    const front = [];
+    for (const q of fixed) {
+      const a = clamp((level - q.ry) / 0.12);
+      if (a <= 0) continue;
+      const [sx, sy, d, p] = project(q.x, q.y, q.z, cosT, sinT);
+      if (q.layer === 1 && d < 0) { front.push([sx, sy, q.size, p, a, q.col, d]); continue; }
+      if (q.layer === 2) continue;
+      dot(sx, sy, q.size, p, a * (q.layer === 1 ? 0.85 : 0.9), q.col, d);
     }
+    for (const q of fixed) {
+      if (q.layer !== 2) continue;
+      const a = clamp((level - q.ry) / 0.12);
+      if (a <= 0) continue;
+      const [sx, sy, d, p] = project(q.x, q.y, q.z, cosT, sinT);
+      dot(sx, sy, q.size, p, a, q.col, d);
+    }
+    for (const f of front) dot(f[0], f[1], f[2], f[3], f[4] * 0.85, f[5], f[6]);
+
+    // Lilies, back to front, each opening once the build reaches it.
+    const order = lilies.map((l) => [l, project(l.C[0], l.C[1], l.C[2], cosT, sinT)[2]]).sort((a, b) => b[1] - a[1]);
+    for (const [l] of order) {
+      const since = (level - (l.C[1] - 0.05)) / SPEED;
+      if (since <= 0) continue;
+      const appear = clamp(since / 0.4);
+      const open = ease((since - 0.3) / 2.8);
+      for (const pet of l.petals) {
+        const D = [
+          Math.cos(pet.ang) * l.P1[0] + Math.sin(pet.ang) * l.P2[0],
+          Math.cos(pet.ang) * l.P1[1] + Math.sin(pet.ang) * l.P2[1],
+          Math.cos(pet.ang) * l.P1[2] + Math.sin(pet.ang) * l.P2[2],
+        ];
+        const Sd = cross(l.A, D);
+        const len = l.L * (0.55 + 0.45 * open) * (pet.inner ? 1 : 0.95);
+        const phi0 = 0.12 + 0.95 * open, curl = 1.3 * open;
+        const wmax = len * (pet.inner ? 0.34 : 0.27) * (0.55 + 0.45 * open);
+        // Centerline of the petal, curling back at the tip.
+        const line = [[0, 0]];
+        let rr = 0, hh = 0;
+        for (let s = 1; s <= 12; s++) {
+          const u = s / 12, ph = phi0 + curl * u * u;
+          rr += Math.sin(ph) * len / 12;
+          hh += Math.cos(ph) * len / 12;
+          line.push([rr, hh]);
+        }
+        for (const pt of pet.pts) {
+          const fi = pt.u * 12, i0 = Math.floor(fi), i1 = Math.min(12, i0 + 1), fr = fi - i0;
+          const r0 = line[i0][0] + (line[i1][0] - line[i0][0]) * fr;
+          const h0 = line[i0][1] + (line[i1][1] - line[i0][1]) * fr;
+          const w = wmax * Math.sin(Math.PI * Math.pow(pt.u, 0.75)) * (1 - 0.2 * pt.u) * pt.v;
+          const x = l.C[0] + D[0] * r0 + l.A[0] * h0 + Sd[0] * w;
+          const y = l.C[1] + D[1] * r0 + l.A[1] * h0 + Sd[1] * w;
+          const z = l.C[2] + D[2] * r0 + l.A[2] * h0 + Sd[2] * w;
+          const [sx, sy, d, p] = project(x, y, z, cosT, sinT);
+          dot(sx, sy, 2.1, p, appear, pt.col, d);
+        }
+      }
+      // Stamens with rusty pollen, once it's open.
+      if (open > 0.45) {
+        const sg = ease((open - 0.45) / 0.55);
+        for (let k = 0; k < 7; k++) {
+          const ang = (k / 6) * Math.PI * 2 + 0.3;
+          const D = [
+            Math.cos(ang) * l.P1[0] + Math.sin(ang) * l.P2[0],
+            Math.cos(ang) * l.P1[1] + Math.sin(ang) * l.P2[1],
+            Math.cos(ang) * l.P1[2] + Math.sin(ang) * l.P2[2],
+          ];
+          const pist = k === 6;
+          const dir = pist ? l.A : norm([l.A[0] + D[0] * 0.45, l.A[1] + D[1] * 0.45, l.A[2] + D[2] * 0.45]);
+          const len = l.L * (pist ? 0.75 : 0.62) * sg;
+          for (let j = 0; j <= 9; j++) {
+            const s = (j / 9) * len;
+            const [sx, sy, d, p] = project(l.C[0] + dir[0] * s, l.C[1] + dir[1] * s, l.C[2] + dir[2] * s, cosT, sinT);
+            const tip = j >= 8;
+            dot(sx, sy, tip ? 2.6 : 1.4, p, 1, tip ? (pist ? "rgb(110,145,60)" : "rgb(170,75,25)") : "rgb(205,230,170)", d);
+          }
+        }
+      }
+    }
+
+    if (!hinted && level > 4.2) { hinted = true; hint.classList.add("show"); }
+    ctx.globalAlpha = 1;
     requestAnimationFrame(frame);
   }
   requestAnimationFrame(frame);
 
   window.addEventListener("pointerdown", () => {
     start = performance.now();
-    shown = false;
+    hinted = false;
     hint.classList.remove("show");
   });
 })();
