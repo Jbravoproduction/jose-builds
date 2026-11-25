@@ -1,8 +1,8 @@
 /** Server-only helpers for the Retell voice API. The key lives in RETELL_API_KEY (Vercel, secret). */
 const API = "https://api.retellai.com";
-const AGENT_NAME = "Jose Builds Demo Receptionist v1";
+export type DemoKind = "home" | "spa";
 
-const PROMPT = `You are {{receptionist}}, the friendly front-desk receptionist for {{business}}, a {{trade}} company in {{city}}. You answer the phone when the team is busy on a job.
+const HOME_PROMPT = `You are {{receptionist}}, the friendly front-desk receptionist for {{business}}, a {{trade}} company in {{city}}. You answer the phone when the team is busy on a job.
 
 What you know:
 - Services: {{services}}
@@ -24,6 +24,41 @@ Your goal on every call: book the job.
 
 If they ask whether you are a real person, say you are the AI receptionist for {{business}} and you can still get them booked.`;
 
+const SPA_PROMPT = `You are {{receptionist}}, the warm, polished front desk for {{business}}, a med spa in {{city}}. You answer calls when the team is with clients or after hours.
+
+What you know:
+- Treatments: {{services}}
+- Hours: {{hours}}
+- Pricing: {{pricing}}
+- Other details: {{notes}}
+- Lead provider: {{owner}}.
+
+How you talk:
+- Calm, friendly and brief, like a great spa front desk. One or two short sentences at a time. Never read lists out.
+- Answer only from what you know above. Never make up prices, results or promotions.
+- Never give medical advice. If they ask whether a treatment is right for them, about side effects, medications, pregnancy or health conditions, say the provider will go over that personally at their consultation.
+
+Your goal on every call: book a consultation or appointment.
+1. Ask what treatment they are interested in, and if they have been in before.
+2. Offer a day and time, then get their first and last name.
+3. Get the best phone number and email for the confirmation text.
+4. Repeat the details back, then say they will get a text confirmation and a reminder before the visit.
+
+If they ask whether you are a real person, say you are the AI front desk for {{business}} and you can still get them booked.`;
+
+const AGENTS: Record<DemoKind, { name: string; prompt: string; begin: string }> = {
+  home: {
+    name: "Jose Builds Demo Receptionist v1",
+    prompt: HOME_PROMPT,
+    begin: "Thanks for calling {{business}}, this is {{receptionist}}. How can I help you today?",
+  },
+  spa: {
+    name: "Crescia Med Spa Demo Front Desk v1",
+    prompt: SPA_PROMPT,
+    begin: "Thank you for calling {{business}}, this is {{receptionist}}. How can I help you today?",
+  },
+};
+
 function headers() {
   const key = process.env.RETELL_API_KEY;
   if (!key) throw new Error("RETELL_API_KEY is not set");
@@ -43,35 +78,37 @@ async function call<T>(method: string, route: string, body?: unknown): Promise<T
 
 type Agent = { agent_id: string; agent_name?: string | null };
 
-let cachedAgentId: string | undefined;
+const cachedAgentIds: Partial<Record<DemoKind, string>> = {};
 
-/** The one shared demo agent. Each prospect's details are passed in per call as dynamic variables. */
-async function demoAgentId(): Promise<string> {
-  if (process.env.RETELL_AGENT_ID) return process.env.RETELL_AGENT_ID;
-  if (cachedAgentId) return cachedAgentId;
+/** One shared demo agent per kind. Each prospect's details are passed in per call as dynamic variables. */
+async function demoAgentId(kind: DemoKind): Promise<string> {
+  if (kind === "home" && process.env.RETELL_AGENT_ID) return process.env.RETELL_AGENT_ID;
+  const cached = cachedAgentIds[kind];
+  if (cached) return cached;
+  const spec = AGENTS[kind];
 
   try {
     const list = await call<unknown>("GET", "/list-agents");
     const agents: Agent[] = Array.isArray(list)
       ? (list as Agent[])
       : (((list as { agents?: Agent[]; items?: Agent[] }).agents ?? (list as { items?: Agent[] }).items) ?? []);
-    const found = agents.find((a) => a.agent_name === AGENT_NAME);
-    if (found) return (cachedAgentId = found.agent_id);
+    const found = agents.find((a) => a.agent_name === spec.name);
+    if (found) return (cachedAgentIds[kind] = found.agent_id);
   } catch {
     // Fall through and create one.
   }
 
   const llm = await call<{ llm_id: string }>("POST", "/create-retell-llm", {
     start_speaker: "agent",
-    begin_message: "Thanks for calling {{business}}, this is {{receptionist}}. How can I help you today?",
-    general_prompt: PROMPT,
+    begin_message: spec.begin,
+    general_prompt: spec.prompt,
   });
   const agent = await call<Agent>("POST", "/create-agent", {
-    agent_name: AGENT_NAME,
+    agent_name: spec.name,
     response_engine: { type: "retell-llm", llm_id: llm.llm_id },
     voice_id: "retell-Cimo",
   });
-  return (cachedAgentId = agent.agent_id);
+  return (cachedAgentIds[kind] = agent.agent_id);
 }
 
 export type WebCall = {
@@ -81,11 +118,11 @@ export type WebCall = {
   ice_servers?: { urls: string | string[]; username?: string; credential?: string }[];
 };
 
-export async function createDemoCall(vars: Record<string, string>, slug: string): Promise<WebCall> {
-  const agent_id = await demoAgentId();
+export async function createDemoCall(vars: Record<string, string>, slug: string, kind: DemoKind = "home"): Promise<WebCall> {
+  const agent_id = await demoAgentId(kind);
   return call<WebCall>("POST", "/v3/create-web-call", {
     agent_id,
     retell_llm_dynamic_variables: vars,
-    metadata: { demo: slug },
+    metadata: { demo: slug, kind },
   });
 }

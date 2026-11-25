@@ -1,0 +1,14 @@
+{
+  "slug": "sample-med-spa",
+  "business": "Glow Aesthetics Med Spa",
+  "city": "Des Moines, IA",
+  "owner": "Dr. Taylor",
+  "receptionist": "Sophia",
+  "hours": "Tuesday to Friday 9 AM to 6 PM, Saturday 9 AM to 2 PM",
+  "treatments": ["Botox and Dysport", "Dermal fillers", "Lip filler", "Hydrafacials", "Chemical peels", "Laser hair removal", "Microneedling"],
+  "pricing": "Botox is priced per unit and fillers per syringe. Exact pricing is confirmed at a free consultation based on what each client needs.",
+  "notes": "Free consultations for new clients. Monthly membership available. Accepts card and CareCredit.",
+  "tries": ["\"How much is Botox?\"", "\"Can I come in Saturday for a consultation?\"", "\"I've never had filler, what should I expect?\""],
+  "color": "#b07a5a",
+  "created": "2026-11-24"
+}

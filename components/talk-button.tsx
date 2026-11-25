@@ -6,7 +6,7 @@ type Status = "idle" | "connecting" | "live" | "ended" | "error";
 const MAX_MS = 5 * 60 * 1000;
 
 /** Big round button that starts a browser voice call with the prospect's demo receptionist. */
-export function TalkButton({ slug, color }: { slug: string; color: string }) {
+export function TalkButton({ slug, color, kind = "home" }: { slug: string; color: string; kind?: "home" | "spa" }) {
   const [status, setStatus] = useState<Status>("idle");
   const [error, setError] = useState("");
   const client = useRef<{ stopCall: () => void } | null>(null);
@@ -28,7 +28,7 @@ export function TalkButton({ slug, color }: { slug: string; color: string }) {
       const res = await fetch("/api/demo-call", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ slug }),
+        body: JSON.stringify({ slug, kind }),
       });
       const data = await res.json();
       if (!res.ok) throw new Error(data.error ?? "Could not start the call.");
